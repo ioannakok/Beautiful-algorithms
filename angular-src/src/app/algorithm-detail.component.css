@@ -1,0 +1,23 @@
+.bg-1 {
+	background-color: #1abc9c;
+	color: #ffffff;
+	vertical-align: middle;
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.title {	
+	font-weight: bold;
+	font-family: 'Trebuchet MS', sans-serif;
+	font-size: 40px;
+	letter-spacing: 2px;
+}
+
+.content {
+	padding-bottom: 4%;
+	padding-right: 4%;
+	font-size: 18px;
+  	line-height: 1.5;
+  	font-family: Georgia, 'Times New Roman', serif; 
+  	color: #555;
+}

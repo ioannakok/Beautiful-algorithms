@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 // Algorithms sections
+
 router.get('/', (req, res, next) => {
-	res.send('ALGORITHMS');
+	res.send('index');
 });
 
 // Algorithm
