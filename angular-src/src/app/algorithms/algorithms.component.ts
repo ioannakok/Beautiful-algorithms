@@ -3,14 +3,14 @@ import { Algorithm } from './algorithm';
 import { AlgoService } from './algo.service';
 import { Router } from '@angular/router';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
-})
 
-export class HomeComponent implements OnInit {
-	
+@Component({
+  selector: 'app-algorithms',
+  templateUrl: './algorithms.component.html',
+  styleUrls: ['./algorithms.component.css']
+})
+export class AlgorithmsComponent implements OnInit {
+
   	algorithms: Algorithm[];
 
   	constructor(
@@ -24,4 +24,5 @@ export class HomeComponent implements OnInit {
   	ngOnInit(): void {
   		this.getAlgos();
   	}
+
 }

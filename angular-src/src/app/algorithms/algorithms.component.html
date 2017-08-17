@@ -1,0 +1,10 @@
+<div class="container-fluid">
+	<div class="row">
+        <a class="col-lg-3 col-md-4 col-sm-6 col-xs-12 circle" *ngFor="let algo of algorithms" [routerLink]="['/algorithm', algo.url]">
+
+        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+        <h2>{{algo.name}}</h2> 
+        </a><!-- /.col-lg-4 -->
+	</div>
+</div>
+<router-outlet></router-outlet>

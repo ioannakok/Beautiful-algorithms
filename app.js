@@ -22,7 +22,7 @@ mongoose.connection.on('error', (err) => {
 
 const app = express();
 
-const algorithms = require('./routes/algorithms');
+const algorithms = require('./routes/app');
 
 // Port Number
 const port = 3000;
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Body Parser Middleware
 app.use(bodyParser.json());
 
-app.use('/algorithms', algorithms);
+app.use('/index', algorithms);
 
 // Index Route
 app.get('/', (req, res) => {

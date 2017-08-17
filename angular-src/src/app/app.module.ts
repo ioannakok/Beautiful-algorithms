@@ -5,13 +5,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 
-
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header.component';
-import { HomeComponent } from './home.component';
-import { AlgorithmDetailComponent } from './algorithm-detail.component';
-import { NavbarComponent } from './navbar.component';
-import { AlgoService } from './algo.service';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './home/home.component';
+import { AlgorithmDetailComponent } from './algorithms/algorithm-detail.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AlgoService } from './algorithms/algo.service';
+import { AlgorithmsComponent } from './algorithms/algorithms.component';
 
 
 @NgModule({
@@ -20,7 +20,8 @@ import { AlgoService } from './algo.service';
     HeaderComponent,
     HomeComponent,
     AlgorithmDetailComponent,
-    NavbarComponent
+    NavbarComponent,
+    AlgorithmsComponent
     
   ],
   imports: [

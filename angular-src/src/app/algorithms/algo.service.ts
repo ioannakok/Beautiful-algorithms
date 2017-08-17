@@ -12,8 +12,8 @@ export class AlgoService {
 		return Promise.resolve(ALGORITHMS);
 	}
 
-	getAlgo(id: number): Promise<Algorithm> {
-		return this.getAlgos().then(algorithms => algorithms.find(algorithm => algorithm.id === id));
+	getAlgo(url: string): Promise<Algorithm> {
+		return this.getAlgos().then(algorithms => algorithms.find(algorithm => algorithm.url === url));
  	}
 
 }

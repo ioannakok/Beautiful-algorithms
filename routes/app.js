@@ -3,13 +3,10 @@ const router = express.Router();
 
 // Algorithms sections
 
+// Changed send to render
 router.get('/', (req, res, next) => {
-	res.send('index');
+	res.render('index');
 });
 
-// Algorithm
-router.get('/algo', (req, res, next) => {
-	res.send('ALGO');
-});
 
 module.exports = router;
