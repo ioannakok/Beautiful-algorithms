@@ -1,0 +1,22 @@
+<div class="container-fluid bg-1 text-center vertical-center">
+	<div>
+		<h1 class="margin title">{{title}}</h1>
+	</div>
+</div>
+
+<div class="container-fluid bg-4">
+      <div class = "row">
+        <div class="col-lg-2 col-md-2 col-sm-3">
+    		<nav class="navbar">
+        		<ul class="nav flex-column">
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['why-it-matters']">Why it matters</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['enqueue']">Queue Enqueue</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['dequeue']">Queue Dequeue</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['front']">Queue Front</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['rear']">Queue Rear</a></li>    
+        		</ul>
+    		</nav>
+		</div>
+		<router-outlet></router-outlet>
+      </div>
+</div>

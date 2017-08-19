@@ -1,0 +1,24 @@
+<div class="container-fluid bg-1 text-center vertical-center">
+	<div>
+		<h1 class="margin title">{{title}}</h1>
+	</div>
+</div>
+
+<div class="container-fluid bg-4">
+      <div class = "row">
+        <div class="col-lg-2 col-md-2 col-sm-3">
+    		<nav class="navbar">
+        		<ul class="nav flex-column">
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['why-it-matters']">Why it matters</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insert-first']">Linked List Insert First</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insert-last']">Linked List Insert Last</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insert-at-index']">Linked List Insert At Index</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-first']">Linked List Delete First</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-last']">Linked List Delete Last</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-at-index']">Linked List Delete At Index</a></li>   
+        		</ul>
+    		</nav>
+		</div>
+		<router-outlet></router-outlet>
+      </div>
+</div>

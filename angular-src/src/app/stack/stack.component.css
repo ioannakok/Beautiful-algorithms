@@ -1,0 +1,14 @@
+.bg-1 {
+	background-color: #bc1a3a;
+	color: #ffffff;
+	vertical-align: middle;
+	padding-top: 70px;
+	padding-bottom: 70px;
+}
+
+.title {	
+	font-weight: bold;
+	font-family: 'Trebuchet MS', sans-serif;
+	font-size: 40px;
+	letter-spacing: 2px;
+}
