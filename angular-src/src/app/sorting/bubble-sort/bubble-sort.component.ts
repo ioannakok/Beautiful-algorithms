@@ -1,10 +1,6 @@
-
-
-import { Component, ViewChild, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
 import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js/src/Tween';
-
-
 
 
 @Component({
@@ -12,8 +8,7 @@ import * as TWEEN from '@tweenjs/tween.js/src/Tween';
   templateUrl: './bubble-sort.component.html',
   styleUrls: ['./bubble-sort.component.css']
 })
-export class BubbleSortComponent implements OnInit {
-
+export class BubbleSortComponent {
 
 
 	@ViewChild('rendererContainer') rendererContainer: ElementRef;
@@ -26,14 +21,22 @@ export class BubbleSortComponent implements OnInit {
     renderer = new THREE.WebGLRenderer();
     scene = null;
     camera = null;
+
+    // Time and delay parameters for tweens
     time = 500;
     delay = 0;
-    bar = null;
+
+    // Arrays for elements and their coordinates
     bars = [];
     xCoords = [];
     current = null;
-    animation = true;
-    
+
+    // Boolean variables to control animation
+    animation = false;
+    initAnim = false;
+    paused = false;
+    pauseStart = null;
+    tweens = [];
     
 
   constructor() { 
@@ -57,46 +60,182 @@ export class BubbleSortComponent implements OnInit {
     spotLight.position.set(-100, 40, 60);
     this.scene.add(spotLight);
 
-    //this.bar = this.getBar(0, 0);
-    //this.scene.add(this.bar);
+    // Create bars
+    this.createBars(15);      
+}
 
-    var dist = 0;
-    var x = -55;
 
-    // Create 20 bars
-    for(var i = 0; i < 20; i++) {
-        var bar = this.getBar(x, dist);
-        dist += 5;
-        this.bars.push(bar);
-        this.xCoords.push(bar.position.x);
-        this.scene.add(bar);
+  onPlay() {
+
+    // If the animation has been paused
+    if(this.paused && this.animation) {
+
+        // Restart all tweens
+        for(var i = 0; i < this.tweens.length; i ++) {
+            this.tweens[i].play();
+        }
+
+        // Animation is not paused anymore
+        this.paused = false;
+
+
+    } else {
+
+        // Start animation
+        this.animation = true;
+    }
+}
+    
+    onStop() {
+        // Stop all tweens
+        TWEEN.removeAll();
     }
 
-    // Print for debugging
-    this.bars.forEach(function(bar) {
-        console.log(bar);
-    })
-
-    
-
-       
-  }
-
-  ngOnInit() {
-
+    onRestart() {
         
+        // Remove all bars from the scene
+        for(var i=0; i < this.bars.length; i++) {
+            this.removeBar(this.bars[i]);
+        }
+        
+        // Empty the array of bars
+        this.bars = [];
+        this.xCoords = [];
 
+        // Create new set of bars
+        this.createBars(15);
 
-  }
+        // Initialise again all the variables
+        this.initAnim = false;
+        this.animation = false;
+        this.time = 500;
+        this.delay = 0;
+        this.paused = false;
+        
+        // Remove all tweens
+        TWEEN.removeAll();
+    }
+
+    onPause() {
+        
+        if(this.paused)
+            return;
+        
+        // Get all the active tweens
+        this.tweens = TWEEN.getAll();
+        
+        // Stop all the active tweens
+        for(var i = 0; i < this.tweens.length; i ++) {
+            this.tweens[i].pause();
+        }
+
+        this.paused = true;        
+    }
+
 
   ngAfterViewInit() {
-        this.renderer.setSize(window.innerWidth / 1.8, window.innerHeight / 1.8);
+        this.renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
         this.renderer.setClearColor(0xffffff);
         this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
-        this.animate();  
+        this.animate();          
+}
+
+
+  animate() {
+        window.requestAnimationFrame(() => this.animate());
+        this.renderer.render(this.scene, this.camera);
+
+        // If animation starts now, run bubbleSort once
+        if(this.animation && !this.initAnim) {
+            this.bubbleSort();
+            this.initAnim = true;
+        }
+
+        // If animation is on progress, update all tweens
+        if(this.animation)
+            TWEEN.update();  
+    }
+
+    // Sweaps elements
+    swap(element1, element2, x1, x2, time, delay) {
+
+        var tween = new TWEEN.Tween({x: x1})
+                .to({x: x2}, time)
+                .delay(delay)
+                .easing(TWEEN.Easing.Quartic.In)
+                .onUpdate(function() {
+                    if(element1.position.x < x2)
+                        element1.translateX(0.2);
+                })
+                .start();
+
+            var tween1 = new TWEEN.Tween({x: x2})
+                .to({x: x1}, time)
+                .delay(delay)
+                .easing(TWEEN.Easing.Quartic.In)
+                .onUpdate(function() {
+                    if(element2.position.x > x1)    
+                        element2.translateX(-0.2);
+                        
+                })
+                .start();
+    }
+
+    
+    // Change colour of an element
+    changeColour(element, time, delay, r, g, b) {
+
+        var tween = new TWEEN.Tween(element.material.color)
+            .to({r: r, g: g, b: b}, time)
+            .delay(delay)
+            .start();
+    }
+
+    // Create one bar
+    getBar(x, dist) {
+        var geometry = new THREE.BoxGeometry(4, ((Math.random() * 50) + 5), 4);
+        var material = new THREE.MeshPhongMaterial({color: 0x00ff00});
+        var cube = new THREE.Mesh(geometry, material);
+
+            cube.position.x = x + dist;
+            cube.position.y = 0;
+            cube.position.z = 0;
+
+        return cube;    
+    }
+
+
+    // Remove a bar from the scene
+    removeBar(bar) {
+            this.scene.remove(bar);
+            bar.geometry.dispose();
+            bar.material.dispose();
+            bar = undefined;
+    }
+
+
+    // Create bars and add them to the scene
+    createBars(num) {
+
+        var dist = 0;
+        var x = -55;
+
+        // Create num bars
+        for(var i = 0; i < num; i++) {
+            var bar = this.getBar(x, dist);
+            dist += 5;
+            this.bars.push(bar);
+            this.xCoords.push(bar.position.x);
+            this.scene.add(bar);
+        }
+    }
+
+    // Bubble sort method
+    bubbleSort() {
 
         var n = this.bars.length;
         var last = this.bars.length - 1;
+
 
         for(var i=0; i < n; i++) {
 
@@ -121,15 +260,16 @@ export class BubbleSortComponent implements OnInit {
 
                 if(curHeight > nextHeight) {
 
+                    // Swap elements
                     this.swap(current, next, curX, nextX, this.time, this.delay);
                     this.delay += this.time;
 
+                    // Change position in the array of elements
                     this.bars[j] = next;
                     this.bars[j+1] = current;    
-                    
                 }
 
-                // Turn elements compared to green again
+                // Turn elements that have been compared to green again
                 this.changeColour(current, this.time, this.delay, 0, 1, 0);
                 this.changeColour(next, this.time, this.delay, 0, 1, 0);
 
@@ -145,67 +285,6 @@ export class BubbleSortComponent implements OnInit {
                     this.changeColour(this.bars[0], this.time, this.delay, 0, 0, 1);
                 }   
             }
-        }
+        }    
     }
-
-
-  animate() {
-        window.requestAnimationFrame(() => this.animate());
-        this.renderer.render(this.scene, this.camera);
-        TWEEN.update();  
-
-    }
-
-    swap(element1, element2, x1, x2, time, delay) {
-
-        var tween = new TWEEN.Tween({x: x1})
-                .to({x: x2}, time)
-                .delay(delay)
-                .easing(TWEEN.Easing.Quartic.In)
-                .onUpdate(function() {
-                    if(element1.position.x < x2)
-                        element1.translateX(0.2);
-                })
-                .start();
-
-            var tween1 = new TWEEN.Tween({x: x2})
-                .to({x: x1}, time)
-                .delay(delay)
-                .easing(TWEEN.Easing.Quartic.In)
-                .onUpdate(function() {
-                    if(element2.position.x > x1)    
-                        element2.translateX(-0.2);
-                })
-                .start();
-    }
-
-    
-    // Change colour of an element
-    changeColour(element, time, delay, r, g, b) {
-
-        var tween = new TWEEN.Tween(element.material.color)
-            .to({r: r, g: g, b: b}, time)
-            .delay(delay)
-            .start();
-    }
-
-    // Move an element
-    
-
-    
-
-    // Create one bar
-    getBar(x, dist) {
-
-        var geometry = new THREE.BoxGeometry(4, ((Math.random() * 50) + 5), 4);
-        var material = new THREE.MeshPhongMaterial({color: 0x00ff00});
-        var cube = new THREE.Mesh(geometry, material);
-
-            cube.position.x = x + dist;
-            cube.position.y = 0;
-            cube.position.z = 0;
-
-        return cube;    
-    }
-
 }
