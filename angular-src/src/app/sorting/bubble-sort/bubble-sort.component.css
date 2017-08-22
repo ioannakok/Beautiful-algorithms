@@ -7,3 +7,38 @@
   	color: #555;
 }
 
+div label, div input{
+    vertical-align: middle;
+    padding:0px;
+    margin:0px;
+}
+
+input {
+	width: 100px;
+	position: relative;
+}
+
+.code {
+	font-family: Consolas, Monaco, "Lucida Console";
+	width: 500px;
+	text-align: left;
+	color: black;
+	background-color: #ffffff;
+}
+
+.indent-1 {
+	padding-left: 40px;
+
+}
+
+.indent-2 {
+	padding-left: 80px;
+}
+
+.indent-3 {
+	padding-left: 120px;
+}
+
+.indent-4 {
+	padding-left: 160px;
+}
