@@ -18,25 +18,26 @@ export class BubbleSortComponent {
     	this.renderer.setSize(event.target.innerWidth, event.target.innerHeight)
 	}
 
+    // Properties
     renderer = new THREE.WebGLRenderer();
     scene = null;
     camera = null;
 
     // Time and delay parameters for tweens
-    time = 3000;
+    time = 1000;
     delay = 0;
 
     // Arrays for elements and their coordinates
     bars = [];
     xCoords = [];
-    current = null;
-
+    
     // Boolean variables to control animation
     animation = false;
     initAnim = false;
     paused = false;
     pauseStart = null;
     tweens = [];
+    button = null;
 
     // Pseudocode snippets
     pseudo1 = null;
@@ -67,7 +68,6 @@ export class BubbleSortComponent {
 
     // Array for all the snippets
     code = [];
-
 
   constructor() { 
 
@@ -148,6 +148,7 @@ export class BubbleSortComponent {
         this.code.push(this.c9);
         this.c10 = document.getElementById('c10');   
         this.code.push(this.c10);
+
 }
 
     
@@ -266,18 +267,21 @@ export class BubbleSortComponent {
 
     
     // Change colour of an element
-    changeColour(element, time, delay, r, g, b) {
+    changeColour(element, time, delay, hex) {
 
         var tween = new TWEEN.Tween(element.material.color)
-            .to({r: r, g: g, b: b}, time)
+            .to({hex: hex}, time)
             .delay(delay)
+            .onUpdate(function() {
+                element.material.color.setHex(hex);
+            })
             .start();
     }
 
     // Create one bar
     getBar(x, dist) {
         var geometry = new THREE.BoxGeometry(4, ((Math.random() * 50) + 5), 4);
-        var material = new THREE.MeshPhongMaterial({color: 0x00ff00});
+        var material = new THREE.MeshPhongMaterial({color: 0x3abc1a});
         var cube = new THREE.Mesh(geometry, material);
 
             cube.position.x = x + dist;
@@ -326,8 +330,8 @@ export class BubbleSortComponent {
                 var next = this.bars[j+1];
 
                 // Change colour to show comparison
-                this.changeColour(current, this.time, this.delay, 1, 0, 0.502);
-                this.changeColour(next, this.time, this.delay, 1, 0, 0.502);
+                this.changeColour(current, this.time, this.delay, 0x7d1799);
+                this.changeColour(next, this.time, this.delay, 0x7d1799);
 
                 // Animate pseudocode
                 this.animateCode(this.pseudo1, this.time, this.delay);
@@ -403,19 +407,19 @@ export class BubbleSortComponent {
                 }
 
                 // Turn elements that have been compared to green again
-                this.changeColour(current, this.time, this.delay, 0, 1, 0);
-                this.changeColour(next, this.time, this.delay, 0, 1, 0);
+                this.changeColour(current, this.time, this.delay, 0x3abc1a);
+                this.changeColour(next, this.time, this.delay, 0x3abc1a);
 
                 // Change colour to blue when sorted
                 if(j == last - 1) {
-                    this.changeColour(this.bars[last], this.time, this.delay, 0, 0, 1);
+                    this.changeColour(this.bars[last], this.time, this.delay, 0xbc9c1a);
                     last -= 1;
                     this.delay += this.time;
                 }
 
                 // Change colour of the first element to blue when finished
                 if(j == 0 && last == 0) {
-                    this.changeColour(this.bars[0], this.time, this.delay, 0, 0, 1);
+                    this.changeColour(this.bars[0], this.time, this.delay, 0xbc9c1a);
                 }   
             }
         }    
