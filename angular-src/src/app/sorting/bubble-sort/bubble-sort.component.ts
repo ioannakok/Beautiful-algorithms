@@ -206,12 +206,12 @@ export class BubbleSortComponent {
         this.xCoords = [];
 
         // Create new set of bars
-        this.createBars(15);
+        this.createBars(20);
 
         // Initialise again all the variables
         this.initAnim = false;
         this.animation = false;
-        this.time = 3000;
+        this.time = 1000;
         this.delay = 0;
         this.paused = false;
 

@@ -23,7 +23,7 @@ export class SelectionSortComponent {
     camera = null;
 
     // Time and delay parameters for tweens
-    time = 2000;
+    time = 1000;
     delay = 0;
 
     // Arrays for elements and their coordinates
@@ -216,12 +216,12 @@ export class SelectionSortComponent {
         this.xCoords = [];
 
         // Create new set of bars
-        this.createBars(15);
+        this.createBars(20);
 
         // Initialise again all the variables
         this.initAnim = false;
         this.animation = false;
-        this.time = 2000;
+        this.time = 1000;
         this.delay = 0;
         this.paused = false;
 
