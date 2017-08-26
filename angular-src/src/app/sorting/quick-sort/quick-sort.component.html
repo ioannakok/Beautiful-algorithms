@@ -1,3 +1,149 @@
-<p>
-  quick-sort works!
-</p>
+<div class="col-lg-10 col-md-10 col-sm-9">
+    <div>
+        <h3>Quick Sort</h3>
+    </div>
+    <div class="content">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+
+
+<div class="col-lg-6 col-md-6 col-sm-9">
+    
+    <div #rendererContainer></div>
+
+    <!-- Icons from: http://glyphicons.com/ -->
+    <div class="controls-row">
+    	<div class="control-group">
+	    <button type="button" class="btn btn-default">
+	      	<span id="restart" class="glyphicon glyphicon-repeat" aria-hidden="true" (click)="onRestart()"></span> 
+	    </button>
+	  	<button type="button" class="btn btn-default">
+	      	<span id="play" class="glyphicon glyphicon-play" aria-hidden="true" (click)="onPlay()"></span> 
+	    </button>
+	    <button type="button" class="btn btn-default">
+	      	<span id="pause" class="glyphicon glyphicon-pause" aria-hidden="true" (click)="onPause()"></span> 
+	    </button>
+	    <button type="button" class="btn btn-default">
+	      	<span id="stop" class="glyphicon glyphicon-stop" aria-hidden="true" (click)="onStop()"></span> 
+	    </button>
+	    <label class="control-label" for="speed">Speed:</label>
+	    	<div class="controls">
+			<input id="speed" #ref type="range" min="100" max="3000" value="1000">
+		    </div>
+		</div>
+    </div>
+</div>
+
+
+<div class="col-lg-6 col-md-6 col-sm-9">
+
+    <ul class="nav nav-tabs">
+  		<li class="active"><a data-toggle="tab" href="#home">Pseudocode</a></li>
+  		<li><a data-toggle="tab" href="#menu1">Java</a></li>
+  		<li><a data-toggle="tab" href="#menu2">Python</a></li>
+  		<li><a data-toggle="tab" href="#menu3">C++</a></li>
+	</ul> 
+
+	<!-- Code for Selection Sort
+  https://www.w3schools.com/bootstrap/bootstrap_tabs_pills.asp --> 
+	
+	<div class="tab-content">
+
+      <!-- Pseudocode for Selection Sort -->
+  		<div id="home" class="tab-pane fade in active">
+        <h3>Pseudocode</h3>
+        <div>
+          <div id="pseudo1" class="code"></div>
+          <div id="pseudo2" class="code indent-1"></div>
+          <div id="pseudo3" class="code indent-2"></div>
+        </div>
+  		</div>
+
+      <!-- Java implementation for Quick Sort 
+      Source: http://www.geeksforgeeks.org/quick-sort/ -->
+  		<div id="menu1" class="tab-pane fade">
+    		<h3>Java</h3>
+    		<div>
+          <div id="java1" class="code">int partition(int arr[], int low, int high) &#123;</div><br>
+          <div id="java2" class="code indent-1">int pivot = arr[high];</div>
+          <div id="java3" class="code indent-1">int i = (low-1);</div>
+          <div id="java4" class="code indent-1">for (int j=low; j &lt; high; j++) &#123;</div>
+          <div id="java5" class="code indent-2 indent-2">if (arr[j] &lt;= pivot) &#123;</div>
+          <div id="java6" class="code indent-3">i++;</div>
+          <div id="java7" class="code indent-3">int temp = arr[i];</div>
+          <div id="java8" class="code indent-3">arr[i] = arr[j];</div>
+          <div id="java9" class="code indent-3">arr[j] = temp;</div>
+          <div id="java10" class="code indent-2">&#125;</div>
+          <div id="java11" class="code indent-1">&#125;</div>
+          <div id="java12" class="code indent-1">int temp = arr[i+1];</div>
+          <div id="java13" class="code indent-1">arr[i+1] = arr[high];</div>
+          <div id="java14" class="code indent-1">arr[high] = temp;</div>
+          <div id="java15" class="code indent-1">return i+1;</div>
+          <div id="java16" class="code">&#125;</div><br>
+          <div id="java17" class="code">void quickSort(int arr[], int low, int high) &#123;</div><br>
+          <div id="java18" class="code indent-1">if (low &lt; high) &#123;</div>
+          <div id="java19" class="code indent-2">int pi = partition(arr, low, high);</div>
+          <div id="java20" class="code indent-2">quikSort(arr, low, pi-1);</div>
+          <div id="java21" class="code indent-2">quickSort(arr, pi+1, high);</div>
+          <div id="java22" class="code indent-1">&#125;</div>
+          <div id="java23" class="code">&#125;</div>
+        </div>
+  		</div>
+
+      <!-- Python implementation for Quick Sort 
+      Source: http://www.geeksforgeeks.org/quick-sort/-->
+  		<div id="menu2" class="tab-pane fade">
+    		<h3>Python</h3>
+    		<div>
+          <div id="python1" class="code">def partition(arr,low,high):</div><br>
+          <div id="python2" class="code indent-1">pivot = arr[high]</div>
+          <div id="python3" class="code indent-1">i = ( low-1 )</div><br>
+          <div id="python4" class="code indent-1">for j in range(low , high):</div>
+          <div id="python5" class="code indent-2">if   arr[j] &lt;= pivot:</div>
+          <div id="python6" class="code indent-3">i = i+1</div>
+          <div id="python7" class="code indent-3">arr[i],arr[j] = arr[j],arr[i]</div><br>
+          <div id="python8" class="code indent-1">arr[i+1],arr[high] = arr[high],arr[i+1]</div>
+          <div id="python9" class="code indent-1">return ( i+1 )</div><br>
+          <div id="python10" class="code">def quickSort(arr,low,high):</div><br>
+          <div id="python11" class="code indent-1">if low &lt; high:</div>
+          <div id="python12" class="code indent-2">pi = partition(arr,low,high)</div><br>
+          <div id="python13" class="code indent-2">quickSort(arr, low, pi-1)</div>
+          <div id="python14" class="code indent-2">quickSort(arr, pi+1, high)</div>
+        </div>
+  		</div>
+
+      <!-- C++ implementation for Quick Sort 
+      Source: https://www.youtube.com/watch?v=COk73cpQbFQ -->
+  		<div id="menu3" class="tab-pane fade">
+    		<h3>C++</h3>
+    		<div>
+          <div id="c1" class="code">int Partition (int *A, int start, int end)&#123;</div><br>
+          <div id="c2" class="code indent-1">int pivot = A[end];</div>
+          <div id="c3" class="code indent-1">int partitionIndex = start;</div><br>
+          <div id="c4" class="code indent-1">for(int i = start; i &lt; end; i++ &#123;</div>
+          <div id="c5" class="code indent-2">if(A[i] &lt;= pivot) &#123;</div>
+          <div id="c6" class="code indent-3">swap(A[i], A[partitionIndex]);</div>
+          <div id="c7" class="code indent-3">partitionIndex++;</div>
+          <div id="c8" class="code indent-2">&#125;</div>
+          <div id="c9" class="code indent-1">&#125;</div>
+          <div id="c10" class="code indent-1">swap(A[partitionIndex], A[end]);</div>
+          <div id="c11" class="code indent-1">return partitionIndex;</div><br>
+          <div id="c12" class="code">void QuickSort(int *A, int start, int end) &#123;</div><br>
+          <div id="c13" class="code indent-1">if(start &lt; end) &#123;</div>
+          <div id="c14" class="code indent-2">int partitionIndex = Partition(A, start, end);</div><br>
+          <div id="c15" class="code indent-2">QuickSort(A, start, partitionIndex-1);</div>
+          <div id="c16" class="code indent-2">QuickSort(A, partitionIndex+1, end);</div>
+          <div id="c17" class="code indent-1">&#125;</div>
+          <div id="c18" class="code">&#125;</div>
+        </div>
+  		</div>
+	</div>
+
+</div>
+
+</div>
+
+	
+
+
+
