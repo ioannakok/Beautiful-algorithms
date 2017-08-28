@@ -51,7 +51,7 @@ export class QueueEnqueueComponent {
     // C++ snippets
     c2 = null;
     c4 = null;
-    c5 = null
+    c5 = null;
    
     // Array for all the snippets
     code = [];
