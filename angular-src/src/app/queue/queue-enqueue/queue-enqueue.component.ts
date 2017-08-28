@@ -41,13 +41,17 @@ export class QueueEnqueueComponent {
     
 
     // Java snippets
-    
+    java2 = null;
+    java4 = null;
+    java5 = null;
     
     // Python snippets
-    
+    python2 = null;
 
     // C++ snippets
-    
+    c2 = null;
+    c4 = null;
+    c5 = null
    
     // Array for all the snippets
     code = [];
@@ -90,13 +94,24 @@ export class QueueEnqueueComponent {
         
 
         // Java elements
-        
+        this.java2 = document.getElementById('java2');
+        this.code.push(this.java2);
+        this.java4 = document.getElementById('java4');
+        this.code.push(this.java4);
+        this.java5 = document.getElementById('java5');
+        this.code.push(this.java5);
         
         // Python elements
+        this.python2 = document.getElementById('python2');
+        this.code.push(this.python2);
         
-
         // C++ elements
-        
+        this.c2 = document.getElementById('c2');
+        this.code.push(this.c2);
+        this.c4 = document.getElementById('c4');
+        this.code.push(this.c4);
+        this.c5 = document.getElementById('c5');
+        this.code.push(this.c5);  
         
 	}
 
@@ -113,8 +128,19 @@ export class QueueEnqueueComponent {
         	this.scene.add(bar);
         	this.bars.push(bar);
 
+            // Animate Java, Python, C++
+            this.animateCode(this.java2, this.time, this.delay);
+            this.animateCode(this.c2, this.time, this.delay);
         	this.enqueue(bar, this.bars[0].position.x - 6, 0, this.time, this.delay);
-        	
+            this.delay += this.time;
+
+            this.animateCode(this.java4, this.time, this.delay);
+            this.animateCode(this.java5, this.time, this.delay);
+            this.animateCode(this.c4, this.time, this.delay);
+            this.animateCode(this.c5, this.time, this.delay);
+            this.animateCode(this.python2, this.time, this.delay);
+            this.delay += this.time;
+
             this.initAnim = true;
         }
 
