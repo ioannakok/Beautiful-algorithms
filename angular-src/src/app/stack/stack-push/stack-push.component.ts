@@ -122,7 +122,7 @@ export class StackPushComponent {
 	}
 
 	/* Animate function. It updates all the animations */  
-  animate() {
+  	animate() {
         window.requestAnimationFrame(() => this.animate());
         this.renderer.render(this.scene, this.camera);
 
