@@ -13,7 +13,7 @@ export class StackPeekComponent {
 
 	@HostListener('window:resize', ['$event'])
 		onWindowResize(event) {
-    	this.renderer.setSize(event.target.innerWidth, event.target.innerHeight)
+    	this.renderer.setSize(event.target.innerWidth / 2.5, event.target.innerHeight / 2.5)
 	}
 
 	// Properties
@@ -81,7 +81,7 @@ export class StackPeekComponent {
 
 
   	ngAfterViewInit() {
-        this.renderer.setSize(500, 400);
+        this.renderer.setSize(window.innerWidth / 2.5, window.innerHeight / 2.5);
         this.renderer.setClearColor(0xffffff);
         this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
         this.animate();  
@@ -195,7 +195,7 @@ export class StackPeekComponent {
 
     getBox(x, y, z, colour) {
 
-        var geometry = new THREE.BoxGeometry(35, 3, 8);
+        var geometry = new THREE.BoxGeometry(25, 3, 8);
         var material = new THREE.MeshPhongMaterial({color: colour});
         var cube = new THREE.Mesh(geometry, material);
 

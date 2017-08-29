@@ -13,7 +13,7 @@ export class QueueDequeueComponent {
 
 	@HostListener('window:resize', ['$event'])
 		onWindowResize(event) {
-    	this.renderer.setSize(event.target.innerWidth, event.target.innerHeight)
+    	this.renderer.setSize(event.target.innerWidth / 2.5, event.target.innerHeight / 2.5)
 	}
 
 	// Properties
@@ -87,7 +87,7 @@ export class QueueDequeueComponent {
 
 
   ngAfterViewInit() {
-        this.renderer.setSize(500, 200);
+        this.renderer.setSize(window.innerWidth / 2.5, window.innerHeight / 2.5);
         this.renderer.setClearColor(0xffffff);
         this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
         this.animate();  
