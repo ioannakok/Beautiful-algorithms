@@ -15,6 +15,7 @@ import { SORTING_ROUTES } from './sorting/sorting.routes';
 import { STACK_ROUTES } from './stack/stack.routes';
 import { QUEUE_ROUTES } from './queue/queue.routes';
 import { LINKED_LIST_ROUTES } from './linked-list/linked-list.routes';
+import { BST_ROUTES } from './binary-tree/binary-tree.routes';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -22,7 +23,7 @@ const appRoutes: Routes = [
   {path: 'stack', component: StackComponent, children: STACK_ROUTES },
   {path: 'queue', component: QueueComponent, children: QUEUE_ROUTES },
   {path: 'linked-list', component: LinkedListComponent, children: LINKED_LIST_ROUTES },
-  {path: 'binary-tree', component: BinaryTreeComponent},
+  {path: 'binary-tree', component: BinaryTreeComponent, children: BST_ROUTES },
   {path: 'heap', component: HeapComponent},
   {path: 'hashing', component: HashingComponent},
   {path: 'graph', component: GraphComponent}

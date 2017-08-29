@@ -3,3 +3,29 @@
 		<h1 class="margin title">{{title}}</h1>
 	</div>
 </div>
+
+
+
+<div class="container-fluid bg-4">
+      <div class = "row">
+        <div class="col-lg-2 col-md-2 col-sm-3">
+    		<nav class="navbar">
+        		<ul class="nav flex-column">
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['why-it-matters']">Why it matters</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['inorder-traversal']">In Order Traversal</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['preorder-traversal']">Pre Order Traversal</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['postorder-traversal']">Post Order Traversal</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['levelorder-traversal']">Level Order Traversal</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insert-node']">Insert Node</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-node-no-child']">Delete Node With No Children</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-node-one-child']">Delete Node With One Child</a></li>
+            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-node-two-children']">Delete Node With Two Children</a></li>    
+        		</ul>
+    		</nav>
+		</div>
+		<router-outlet></router-outlet>
+      </div>
+</div>
+
+
+
