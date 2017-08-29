@@ -48,18 +48,24 @@ export class LinkedListInsertLastComponent {
     // Java snippets
     java2 = null;
     java3 = null;
-    java4 = null;
+    java6 = null;
+    java7 = null;
+    java8 = null;
 
     // Python snippets
     python2 = null
     python3 = null;
-    python4 = null;
+    python6 = null;
+    python7 = null;
+    python8 = null;
     
     // C++ snippets
     c3 = null;
     c4 = null;
     c5 = null;
-    c6 = null;
+    c8 = null;
+    c9 = null;
+    c10 = null;
     
     // Array for all the snippets
     code = [];
@@ -117,16 +123,24 @@ ngAfterViewInit() {
         this.code.push(this.java2);
         this.java3 = document.getElementById('java3');
         this.code.push(this.java3);
-        this.java4 = document.getElementById('java4');
-        this.code.push(this.java4);
+        this.java6 = document.getElementById('java6');
+        this.code.push(this.java6);
+        this.java7 = document.getElementById('java7');
+        this.code.push(this.java7);
+        this.java8 = document.getElementById('java8');
+        this.code.push(this.java8);
         
         // Python elements
         this.python2 = document.getElementById('python2');
         this.code.push(this.python2);
         this.python3 = document.getElementById('python3');
         this.code.push(this.python3);
-        this.python4 = document.getElementById('python4');
-        this.code.push(this.python4);
+        this.python6 = document.getElementById('python6');
+        this.code.push(this.python6);
+        this.python7 = document.getElementById('python7');
+        this.code.push(this.python7);
+        this.python8 = document.getElementById('python8');
+        this.code.push(this.python8);
         
         // C++ elements
         this.c3 = document.getElementById('c3');
@@ -135,8 +149,12 @@ ngAfterViewInit() {
         this.code.push(this.c4);
         this.c5 = document.getElementById('c5');
         this.code.push(this.c5);
-        this.c6 = document.getElementById('c6');
-        this.code.push(this.c6);
+        this.c8 = document.getElementById('c8');
+        this.code.push(this.c8);
+        this.c9 = document.getElementById('c9');
+        this.code.push(this.c9);
+        this.c10 = document.getElementById('c10');
+        this.code.push(this.c10);
 }
 
 /* Animate function. It updates all the animations */  
@@ -165,14 +183,27 @@ ngAfterViewInit() {
 
             this.delay += this.time;
 
+            // Animate code
+            this.animateCode(this.java3, this.time, this.delay);
+            this.animateCode(this.python3, this.time, this.delay);
+            this.animateCode(this.c5, this.time, this.delay);
+           
+            this.delay += this.time;
+
+            this.animateCode(this.java6, this.time, this.delay);
+            this.animateCode(this.python6, this.time, this.delay);
+            this.animateCode(this.c8, this.time, this.delay);
+
+            this.delay += this.time;
+
             // Link tail next with the new element
             this.shift(box, 20, 18, this.time, this.delay);
         	this.shiftPointer(this.pointer, 30, 20, -3, this.time, this.delay);
 
         	// Animate code
-        	this.animateCode(this.java3, this.time, this.delay);
-            this.animateCode(this.python3, this.time, this.delay);
-            this.animateCode(this.c5, this.time, this.delay);
+        	this.animateCode(this.java7, this.time, this.delay);
+            this.animateCode(this.python7, this.time, this.delay);
+            this.animateCode(this.c9, this.time, this.delay);
 
         	this.delay += this.time;
 
@@ -180,9 +211,9 @@ ngAfterViewInit() {
         	this.shiftPointer(this.tail, 8, 8, 10, this.time, this.delay);
 
         	// Animate code
-        	this.animateCode(this.java4, this.time, this.delay);
-            this.animateCode(this.python4, this.time, this.delay);
-            this.animateCode(this.c6, this.time, this.delay);
+        	this.animateCode(this.java8, this.time, this.delay);
+            this.animateCode(this.python8, this.time, this.delay);
+            this.animateCode(this.c10, this.time, this.delay);
 
             this.initAnim = true;
         }

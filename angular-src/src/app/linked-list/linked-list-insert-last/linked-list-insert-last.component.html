@@ -60,15 +60,20 @@
   		</div>
 
       <!-- Java code for Linked List Insertion
-      Source: http://www.geeksforgeeks.org/linked-list-set-2-inserting-a-node/ -->
+      Source: GC05 Algorithmics - UCL module -->
   		<div id="menu1" class="tab-pane fade">
     		<h3>Java</h3>
     		<div>
           <div id="java1" class="code">void insertLast(int new_data) &#123;</div><br>
-          <div id="java2" class="code indent-1">Node new_node = new Node(new_data);</div>
-          <div id="java3" class="code indent-1">tail.next = new_node;</div>
-          <div id="java4" class="code indent-1">tail = tail.next;</div>
-          <div id="java5" class="code">&#125;</div>
+          <div id="java2" class="code indent-1">Node new_node = new Node(new_data);</div><br>
+          <div id="java3" class="code indent-1">if(head == null) &#123;</div>
+          <div id="java4" class="code indent-2">head = new_node;</div>
+          <div id="java5" class="code indent-2">tail = head;</div>
+          <div id="java6" class="code indent-1">&#125; else &#123;</div>
+          <div id="java7" class="code indent-2">tail.next = new_node;</div>
+          <div id="java8" class="code indent-2">tail = tail.next;</div>
+          <div id="java9" class="code indent-1">&#125;</div>
+          <div id="java10" class="code">&#125;</div>
         </div>
   		</div>
 
@@ -77,10 +82,14 @@
   		<div id="menu2" class="tab-pane fade">
     		<h3>Python</h3>
     		<div>
-          <div id="python1" class="code">def insertLast(self, new_data):</div>
+          <div id="python1" class="code">def insertLast(self, new_data):</div><br>
           <div id="python2" class="code indent-1">new_node = Node(new_data)</div><br>
-          <div id="python3" class="code indent-1">self.tail.next = new_node</div>
-          <div id="python4" class="code indent-2">self.tail = self.tail.next</div>
+          <div id="python3" class="code indent-1">if(self.head == null):</div>
+          <div id="python4" class="code indent-2">self.head = new_node</div>
+          <div id="python5" class="code indent-2">self.tail = self.head</div>
+          <div id="python6" class="code indent-1">else:</div>
+          <div id="python7" class="code indent-2">self.tail.next = new_node</div>
+          <div id="python8" class="code indent-2">self.tail = self.tail.next</div>
         </div>
   		</div>
 
@@ -92,10 +101,15 @@
           <div id="c1" class="code">void single_llist::insert_begin(int value)</div>
           <div id="c2" class="code">&#123;</div>
           <div id="c3" class="code indent-1">struct node *p;</div>
-          <div id="c4" class="code indent-1">p = create_node(value); </div>
-          <div id="c5" class="code indent-1">tail->next = p; </div>
-          <div id="c6" class="code indent-1">tail = tail->next;</div>
-          <div id="c7" class="code">&#125;</div>
+          <div id="c4" class="code indent-1">p = create_node(value); </div><br>
+          <div id="c5" class="code indent-1">if(head == NULL) &#123;</div>
+          <div id="c6" class="code indent-2">head = p; </div>
+          <div id="c7" class="code indent-2">tail = head; </div>
+          <div id="c8" class="code indent-1">&#125; else &#123;</div>
+          <div id="c9" class="code indent-2">tail->next = p; </div>
+          <div id="c10" class="code indent-2">tail = tail->next;</div>
+          <div id="c11" class="code indent-1">&#125;</div>
+          <div id="c12" class="code">&#125;</div>
         </div>
   		</div>
 	</div>
