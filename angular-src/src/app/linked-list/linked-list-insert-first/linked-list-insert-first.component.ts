@@ -88,7 +88,7 @@ export class LinkedListInsertFirstComponent {
     this.createBoxes(4);  
 
     // Create head pointer
-    this.head = this.getLine(-12, -12, 15, 5);
+    this.head = this.getHead();
     this.scene.add(this.head); 
 }
 
@@ -147,33 +147,38 @@ ngAfterViewInit() {
 		    var box = this.getBox(-65, 10);
 		    this.scene.add(box);
 		    this.bars.unshift(box);
-            this.insert(box, -27, 0, -27, -17, 0, this.time, this.delay);
-
+            
             // Create pointer
-            this.pointer = this.getLine(-27, -17, 0, 0);  
+            this.pointer = this.getPointer(-65, 10);  
             this.scene.add(this.pointer);
+            
+            // Insert pointer and element to the scene and animate code
+            this.insert(box, -27, 0, this.time, this.delay);
+            this.insert(this.pointer, -22, 0, this.time, this.delay);
 
-            // Animate code
             this.animateCode(this.java2, this.time, this.delay);
             this.animateCode(this.python2, this.time, this.delay);
             this.animateCode(this.c3, this.time, this.delay);
             this.animateCode(this.c4, this.time, this.delay);
 
-        	this.delay += this.time;	
+            this.delay += this.time;
 
-        	// Animate code
+            // Link pointer to the first element
+            this.shift(box, -27, -23, this.time, this.delay);
+            this.shift(this.pointer, -22, -18, this.time, this.delay);
             this.animateCode(this.java3, this.time, this.delay);
             this.animateCode(this.python3, this.time, this.delay);
             this.animateCode(this.c5, this.time, this.delay);
-        	this.shift(box, -27, -23, this.time, this.delay);
-        	this.shiftPointer(this.pointer, -27, -17, 3, this.time, this.delay);
 
-        	this.delay += this.time;
+            this.delay += this.time;
 
-        	this.animateCode(this.java4, this.time, this.delay);
+            // Shift head pointer
+            this.shift(this.head, -12, -24, this.time, this.delay);
+
+            // Animate code
+            this.animateCode(this.java4, this.time, this.delay);
             this.animateCode(this.python4, this.time, this.delay);
-            this.animateCode(this.c6, this.time, this.delay);
-        	this.shiftPointer(this.head, -12, -12, -11, this.time, this.delay);
+            this.animateCode(this.c6, this.time, this.delay);            
 
             this.initAnim = true;
         }
@@ -203,11 +208,7 @@ ngAfterViewInit() {
         this.animation = true;
     }
 }
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
+    
 
     onRestart() {
         
@@ -226,8 +227,8 @@ ngAfterViewInit() {
 
         // Create new set of boxes and head
         this.createBoxes(4);
-        this.head = this.getLine(-12, -12, 15, 5);
-    	this.scene.add(this.head); 
+        this.head = this.getHead();
+        this.scene.add(this.head);  
 
         // Initialise again all the variables
         this.initAnim = false;
@@ -289,22 +290,34 @@ ngAfterViewInit() {
         return cube;    
     }
 
-    // Create the pointer
-    getLine(x1, x2, y1, y2) {
+    // Create one bar
+    getPointer(x, y) {
+        var geometry = new THREE.BoxGeometry(8, 0.5, 0.5);
+        var material = new THREE.MeshPhongMaterial({color: 0x33a617});
+        var cube = new THREE.Mesh(geometry, material);
 
-        var material = new THREE.LineBasicMaterial({color: 0x33a617, linewidth: 3});
+            cube.position.x = x + 3;
+            cube.position.y = y;
+            cube.position.z = 0;
 
-        var geometry = new THREE.Geometry();
-        geometry.vertices.push(
-            new THREE.Vector3( x1, y1, 0 ),
-            new THREE.Vector3( x2, y2, 0 )
-                 
-        );
-
-        var line = new THREE.Line( geometry, material );
-        
-        return line;
+        return cube;    
     }
+
+    getHead() {
+
+        var geometry = new THREE.BoxGeometry(0.5, 8, 0.5);
+        var material = new THREE.MeshPhongMaterial({color: 0x33a617});
+        var cube = new THREE.Mesh(geometry, material);
+
+            cube.position.x = -12;
+            cube.position.y = 8;
+            cube.position.z = 0;
+
+        return cube;
+    }
+
+
+    
 
     // Create boxes
     createBoxes(num) {
@@ -325,14 +338,14 @@ ngAfterViewInit() {
             this.scene.add(bar);
 
             // Create pointer
-            var line = this.getLine(x1, x2, 0, 0);
-            this.scene.add(line);
+            var pointer = this.getPointer(x1, 0);
+            this.scene.add(pointer);
         }
 
     }
 
     // Function that inserts element at the beginning of the linked list
-    insert(element, x, y, lineX1, lineX2, lineY, time, delay) {
+    insert(element, x, y, time, delay) {
 
         var position = {x: -65, y: 10, rotation: 0};
 
@@ -355,25 +368,13 @@ ngAfterViewInit() {
     	var tween = new TWEEN.Tween({x: x1})
     		.to({x: x2}, time)
     		.delay(delay)
-    		.easing(TWEEN.Easing.Elastic.InOut)
     		.onUpdate(function() {
     			if(element.position.x < x2)
     				element.translateX(0.1);
+                if(element.position.x > x2)
+                    element.translateX(-0.5);
     		})
     		.start();
-    }
-
-    shiftPointer(line, x1, x2, inc, time, delay) {
-
-        var tween = new TWEEN.Tween({x1: x1, x2: x2})
-            .to({x1: x1 + inc, x2: x2 + inc}, time)
-            .delay(delay )
-            .onUpdate(function() {
-                line.geometry.vertices[0].x = x1 + inc;
-                line.geometry.vertices[1].x = x2 + inc;
-                line.geometry.verticesNeedUpdate = true;
-            })
-            .start();
     }
 
 
