@@ -22,7 +22,7 @@ export class QueueDequeueComponent {
     camera = null;
 
     // Time and delay parameters for tweens
-    time = 3000;
+    time = 2000;
     delay = 0;
 
     // Arrays for elements and their coordinates
@@ -183,11 +183,7 @@ export class QueueDequeueComponent {
         this.animation = true;
     }
 }
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
+    
 
     onRestart() {
         
@@ -205,7 +201,7 @@ export class QueueDequeueComponent {
         // Initialise again all the variables
         this.initAnim = false;
         this.animation = false;
-        this.time = 3000;
+        this.time = 2000;
         this.delay = 0;
         this.paused = false;
 
@@ -233,6 +229,19 @@ export class QueueDequeueComponent {
         }
 
         this.paused = true;        
+    }
+
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 4000;
+    }
+
+    onNormal() {
+        this.time = 2000;
+    }
+
+    onFast() {
+        this.time = 1000;
     }
 
     /* Functions for 3D animation */

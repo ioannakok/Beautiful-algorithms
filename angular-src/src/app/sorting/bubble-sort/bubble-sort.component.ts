@@ -19,6 +19,11 @@ export class BubbleSortComponent {
 	}
 
     // Properties
+
+    // Textual description
+    description: String = "Bubble sort starts from the beginning of a list of elements, compares the ones that are adjacent and repeatedly swaps them. After every traversal of the list, the largest unsorted element is placed in the end and becomes sorted."; 
+
+    // Animation
     renderer = new THREE.WebGLRenderer();
     scene = null;
     camera = null;
@@ -188,11 +193,7 @@ export class BubbleSortComponent {
         this.animation = true;
     }
 }
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
+    
 
     onRestart() {
         
@@ -239,6 +240,19 @@ export class BubbleSortComponent {
         }
 
         this.paused = true;        
+    }
+
+    // Functions to control the speed
+    onSlow() {
+        this.time = 2000;
+    }
+
+    onNormal() {
+        this.time = 1000;
+    }
+
+    onFast() {
+        this.time = 500;
     }
 
     /* Functions for 3D animation */

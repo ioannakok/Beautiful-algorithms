@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { AlgorithmDetailComponent } from './algorithms/algorithm-detail.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -24,7 +25,6 @@ import { HashingComponent } from './hashing/hashing.component';
 import { GraphComponent } from './graph/graph.component';
 
 // Sorting components
-import { SortingMattersComponent } from './sorting/sorting-matters/sorting-matters.component';
 import { BubbleSortComponent } from './sorting/bubble-sort/bubble-sort.component';
 import { InsertionSortComponent } from './sorting/insertion-sort/insertion-sort.component';
 import { SelectionSortComponent } from './sorting/selection-sort/selection-sort.component';
@@ -32,7 +32,6 @@ import { MergeSortComponent } from './sorting/merge-sort/merge-sort.component';
 import { QuickSortComponent } from './sorting/quick-sort/quick-sort.component';
 
 // Stack components
-import { StackMattersComponent } from './stack/stack-matters/stack-matters.component';
 import { StackPushComponent } from './stack/stack-push/stack-push.component';
 import { StackPopComponent } from './stack/stack-pop/stack-pop.component';
 import { StackPeekComponent } from './stack/stack-peek/stack-peek.component';
@@ -42,10 +41,8 @@ import { QueueEnqueueComponent } from './queue/queue-enqueue/queue-enqueue.compo
 import { QueueDequeueComponent } from './queue/queue-dequeue/queue-dequeue.component';
 import { QueueFrontComponent } from './queue/queue-front/queue-front.component';
 import { QueueRearComponent } from './queue/queue-rear/queue-rear.component';
-import { QueueMattersComponent } from './queue/queue-matters/queue-matters.component';
 
 // Linked List components
-import { LinkedListMattersComponent } from './linked-list/linked-list-matters/linked-list-matters.component';
 import { LinkedListInsertFirstComponent } from './linked-list/linked-list-insert-first/linked-list-insert-first.component';
 import { LinkedListInsertLastComponent } from './linked-list/linked-list-insert-last/linked-list-insert-last.component';
 import { LinkedListInsertAtIndexComponent } from './linked-list/linked-list-insert-at-index/linked-list-insert-at-index.component';
@@ -62,7 +59,7 @@ import { BSTInsertNodeComponent } from './binary-tree/bstinsert-node/bstinsert-n
 import { BSTDeleteNodeNoChildComponent } from './binary-tree/bstdelete-node-no-child/bstdelete-node-no-child.component';
 import { BSTDeleteNodeOneChildComponent } from './binary-tree/bstdelete-node-one-child/bstdelete-node-one-child.component';
 import { BSTDeleteNodeTwoChildrenComponent } from './binary-tree/bstdelete-node-two-children/bstdelete-node-two-children.component';
-import { BSTMattersComponent } from './binary-tree/bstmatters/bstmatters.component';
+
 
 
 @NgModule({
@@ -81,13 +78,11 @@ import { BSTMattersComponent } from './binary-tree/bstmatters/bstmatters.compone
     HeapComponent,
     HashingComponent,
     GraphComponent,
-    SortingMattersComponent,
     BubbleSortComponent,
     InsertionSortComponent,
     SelectionSortComponent,
     MergeSortComponent,
     QuickSortComponent,
-    StackMattersComponent,
     StackPushComponent,
     StackPopComponent,
     StackPeekComponent,
@@ -95,8 +90,6 @@ import { BSTMattersComponent } from './binary-tree/bstmatters/bstmatters.compone
     QueueDequeueComponent,
     QueueFrontComponent,
     QueueRearComponent,
-    QueueMattersComponent,
-    LinkedListMattersComponent,
     LinkedListInsertFirstComponent,
     LinkedListInsertLastComponent,
     LinkedListInsertAtIndexComponent,
@@ -111,7 +104,7 @@ import { BSTMattersComponent } from './binary-tree/bstmatters/bstmatters.compone
     BSTDeleteNodeNoChildComponent,
     BSTDeleteNodeOneChildComponent,
     BSTDeleteNodeTwoChildrenComponent,
-    BSTMattersComponent
+    FooterComponent
     
   ],
   imports: [

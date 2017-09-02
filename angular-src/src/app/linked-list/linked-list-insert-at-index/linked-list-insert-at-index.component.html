@@ -12,18 +12,28 @@
     <div #rendererContainer></div>
 
     <!-- Icons from: http://glyphicons.com/ -->
-    <div class="controls-row">
-    	<div class="control-group">
-	    <button type="button" class="btn btn-default">
-	      	<span id="restart" class="glyphicon glyphicon-repeat" aria-hidden="true" (click)="onRestart()"></span> 
-	    </button>
-	  	<button type="button" class="btn btn-default">
-	      	<span id="play" class="glyphicon glyphicon-play" aria-hidden="true" (click)="onPlay()"></span> 
-	    </button>
-	    <button type="button" class="btn btn-default">
-	      	<span id="pause" class="glyphicon glyphicon-pause" aria-hidden="true" (click)="onPause()"></span> 
-	    </button>  
-		  </div>
+    <div class="controls-row controlanimation">
+      <div class="control-group">     
+      <label class="control-label" for="speed">Choose speed:</label>
+        <button type="button" class="btn btn-default">
+          <span id="slow" aria-hidden="true" (click)="onSlow()">Slow</span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="normal" aria-hidden="true" (click)="onNormal()">Normal</span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="fast" aria-hidden="true" (click)="onFast()">Fast</span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="restart" class="glyphicon glyphicon-repeat" aria-hidden="true" (click)="onRestart()"></span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="play" class="glyphicon glyphicon-play" aria-hidden="true" (click)="onPlay()"></span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="pause" class="glyphicon glyphicon-pause" aria-hidden="true" (click)="onPause()"></span> 
+        </button>
+      </div>
     </div>
 </div>
 

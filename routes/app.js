@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-// Algorithms sections
-
 // Changed send to render
-router.get('/', (req, res, next) => {
-	res.render('index');
+router.get('/index', (req, res, next) => {
+	res.send('Index');
 });
 
 
 module.exports = router;
+
+// Might not need

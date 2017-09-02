@@ -341,6 +341,19 @@ ngAfterViewInit() {
         this.paused = true;        
     }
 
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 2000;
+    }
+
+    onNormal() {
+        this.time = 1000;
+    }
+
+    onFast() {
+        this.time = 500;
+    }
+
     /* Functions for 3D animation */
 
     // Change colour of an element

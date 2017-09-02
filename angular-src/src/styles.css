@@ -9,6 +9,13 @@
   	color: #555;
 }
 
+.info {
+	font-size: 18px;
+  	line-height: 1.5;
+  	font-family: Georgia, 'Times New Roman', serif; 
+  	color: #555;
+}
+
 .code {
 	font-family: Consolas, Monaco, "Lucida Console";
 	width: 500px;
@@ -35,4 +42,39 @@
 }
 .comment {
 	color: #3abc1a;
+}
+
+/* https://stackoverflow.com/questions/12875645/html-css-layout-number-to-the-power-of-expression-ax */
+.sup {
+	position: relative;
+  	bottom: 1ex; 
+  	font-size: 80%;
+}
+
+/* http://jsfiddle.net/JBPR5/2/ */
+#floating {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+.purple {
+	background-color: #7d1799;
+	width: 20px;
+	height: 20px;
+}
+
+.green {
+	background-color: #3abc19;
+	width: 20px;
+	height: 20px;
+}
+
+.yellow {
+	background-color: #bc9c1a;
+	width: 20px;
+	height: 20px;
+}
+
+.controlanimation {
+	padding-bottom: 10%;
 }

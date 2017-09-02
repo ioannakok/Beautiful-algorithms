@@ -254,11 +254,7 @@ export class QuickSortComponent {
         this.animation = true;
     }
 }
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
+    
 
     onRestart() {
         
@@ -305,6 +301,19 @@ export class QuickSortComponent {
         }
 
         this.paused = true;        
+    }
+
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 2000;
+    }
+
+    onNormal() {
+        this.time = 1000;
+    }
+
+    onFast() {
+        this.time = 500;
     }
 
 

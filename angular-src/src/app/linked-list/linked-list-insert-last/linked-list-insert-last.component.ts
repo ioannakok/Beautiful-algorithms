@@ -22,7 +22,7 @@ export class LinkedListInsertLastComponent {
     camera = null;
 
     // Time and delay parameters for tweens
-    time = 1000;
+    time = 1500;
     delay = 0;
 
     // Arrays for elements and their coordinates
@@ -237,12 +237,7 @@ ngAfterViewInit() {
         this.animation = true;
     }
 }
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
-
+    
     onRestart() {
         
         // Remove all bars from the scene
@@ -266,7 +261,7 @@ ngAfterViewInit() {
         // Initialise again all the variables
         this.initAnim = false;
         this.animation = false;
-        this.time = 1000;
+        this.time = 1500;
         this.delay = 0;
         this.paused = false;
 
@@ -294,6 +289,19 @@ ngAfterViewInit() {
         }
 
         this.paused = true;        
+    }
+
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 2000;
+    }
+
+    onNormal() {
+        this.time = 1500;
+    }
+
+    onFast() {
+        this.time = 1000;
     }
 
     /* Functions for 3D animation */

@@ -228,11 +228,6 @@ export class BSTLevelorderTraversalComponent {
         }
     }
 
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
 
     onRestart() {
         
@@ -279,6 +274,21 @@ export class BSTLevelorderTraversalComponent {
         this.paused = true;        
     }
 
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 2000;
+    }
+
+    onNormal() {
+        this.time = 1000;
+    }
+
+    onFast() {
+        this.time = 500;
+    }
+
+    /* Functions for 3D animation */
+    
     // Creates atree and displays it
     createTree() {
 

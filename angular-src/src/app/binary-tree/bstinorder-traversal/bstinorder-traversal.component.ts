@@ -174,11 +174,7 @@ export class BSTInorderTraversalComponent {
         this.animation = true;
     }
 }
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
+    
 
     onRestart() {
         
@@ -224,6 +220,21 @@ export class BSTInorderTraversalComponent {
 
         this.paused = true;        
     }
+
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 2000;
+    }
+
+    onNormal() {
+        this.time = 1000;
+    }
+
+    onFast() {
+        this.time = 500;
+    }
+
+    /* Functions for 3D animation */
 
     // Creates a tree and displays it 
     createTree() {

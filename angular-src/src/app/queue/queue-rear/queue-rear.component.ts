@@ -159,13 +159,6 @@ export class QueueRearComponent {
     }
 }
 
-
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
-
     onRestart() {
        
         // Initialise again all the variables
@@ -174,6 +167,15 @@ export class QueueRearComponent {
         this.time = 2000;
         this.delay = 0;
         this.paused = false;
+
+        // Remove all bars from the scene
+        for(var i=0; i < this.bars.length; i++) {
+            this.removeBar(this.bars[i]);
+        }
+        this.bars = [];
+
+        // Create bars
+        this.createBars(8);
 
         // Clear code animation
         for(var i=0; i < this.code.length; i++) {
@@ -199,6 +201,19 @@ export class QueueRearComponent {
         }
 
         this.paused = true;        
+    }
+
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 4000;
+    }
+
+    onNormal() {
+        this.time = 2000;
+    }
+
+    onFast() {
+        this.time = 1000;
     }
 
     /* Functions for 3D animation */

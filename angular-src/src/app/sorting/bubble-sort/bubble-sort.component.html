@@ -3,8 +3,24 @@
         <h3>Bubble Sort</h3>
     </div>
     <div class="content">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>{{description}}</p>
+
+        <div class="info col-lg-6 col-md-6 col-sm-9">
+          Complexity: <br>
+          Worst case: O(n<span class="sup">2</span>)<br>
+          Best case: O(n)<br>
+          Average case: O(n<span class="sup">2</span>)
+          <p>Source: <a target="_blank" href="https://en.wikipedia.org/wiki/Bubble_sort">Wikipedia</a></p>
+        </div>
+
+        <div class="info col-lg-6 col-md-6 col-sm-9">      
+              <div id="floating" class="purple"></div> Elements compared<br><br>
+              <div id="floating" class="green"></div> Unsorted element<br><br>
+              <div id="floating" class="yellow"></div> Sorted element<br><br>
+        </div>
+
     </div>
+    
 
 
 <div class="col-lg-6 col-md-6 col-sm-9">
@@ -12,24 +28,27 @@
     <div #rendererContainer></div>
 
     <!-- Icons from: http://glyphicons.com/ -->
-    <div class="controls-row">
-    	<div class="control-group">
-	    <button type="button" class="btn btn-default">
-	      	<span id="restart" class="glyphicon glyphicon-repeat" aria-hidden="true" (click)="onRestart()"></span> 
-	    </button>
-	  	<button type="button" class="btn btn-default">
-	      	<span id="play" class="glyphicon glyphicon-play" aria-hidden="true" (click)="onPlay()"></span> 
-	    </button>
-	    <button type="button" class="btn btn-default">
-	      	<span id="pause" class="glyphicon glyphicon-pause" aria-hidden="true" (click)="onPause()"></span> 
-	    </button>
-	    <button type="button" class="btn btn-default">
-	      	<span id="stop" class="glyphicon glyphicon-stop" aria-hidden="true" (click)="onStop()"></span> 
-	    </button>
-	    <label class="control-label" for="speed">Speed:</label>
-	    	<div class="controls">
-			<input id="speed" #ref type="range" min="100" max="3000" value="1000">
-		    </div>
+    <div class="controls-row controlanimation">
+    	<div class="control-group">	    
+	    <label class="control-label" for="speed">Choose speed:</label>
+	    	<button type="button" class="btn btn-default">
+          <span id="slow" aria-hidden="true" (click)="onSlow()">Slow</span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="normal" aria-hidden="true" (click)="onNormal()">Normal</span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="fast" aria-hidden="true" (click)="onFast()">Fast</span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="restart" class="glyphicon glyphicon-repeat" aria-hidden="true" (click)="onRestart()"></span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="play" class="glyphicon glyphicon-play" aria-hidden="true" (click)="onPlay()"></span> 
+        </button>
+        <button type="button" class="btn btn-default">
+          <span id="pause" class="glyphicon glyphicon-pause" aria-hidden="true" (click)="onPause()"></span> 
+        </button>
 		</div>
     </div>
 </div>

@@ -170,11 +170,7 @@ export class QueueEnqueueComponent {
         this.animation = true;
     }
 }
-    // I don't think we need this function
-    onStop() {
-        // Stop all tweens
-        TWEEN.removeAll();
-    }
+    
 
     onRestart() {
         
@@ -220,6 +216,19 @@ export class QueueEnqueueComponent {
         }
 
         this.paused = true;        
+    }
+
+    /* Functions to control the speed */
+    onSlow() {
+        this.time = 4000;
+    }
+
+    onNormal() {
+        this.time = 2000;
+    }
+
+    onFast() {
+        this.time = 1000;
     }
 
     /* Functions for 3D animation */

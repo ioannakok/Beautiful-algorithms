@@ -8,12 +8,10 @@ import { BSTInsertNodeComponent } from './bstinsert-node/bstinsert-node.componen
 import { BSTDeleteNodeNoChildComponent } from './bstdelete-node-no-child/bstdelete-node-no-child.component';
 import { BSTDeleteNodeOneChildComponent } from './bstdelete-node-one-child/bstdelete-node-one-child.component';
 import { BSTDeleteNodeTwoChildrenComponent } from './bstdelete-node-two-children/bstdelete-node-two-children.component';
-import { BSTMattersComponent } from './bstmatters/bstmatters.component';
 
 
 export const BST_ROUTES: Routes = [
-	{ path: '', redirectTo: 'why-it-matters', pathMatch: 'full'},
-	{ path: 'why-it-matters', component: BSTMattersComponent },
+	{ path: '', redirectTo: 'inorder-traversal', pathMatch: 'full'},
 	{ path: 'inorder-traversal', component: BSTInorderTraversalComponent },
 	{ path: 'preorder-traversal', component: BSTPreorderTraversalComponent },
 	{ path: 'postorder-traversal', component: BSTPostorderTraversalComponent },
