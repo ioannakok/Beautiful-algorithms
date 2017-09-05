@@ -60,6 +60,10 @@ import { BSTDeleteNodeNoChildComponent } from './binary-tree/bstdelete-node-no-c
 import { BSTDeleteNodeOneChildComponent } from './binary-tree/bstdelete-node-one-child/bstdelete-node-one-child.component';
 import { BSTDeleteNodeTwoChildrenComponent } from './binary-tree/bstdelete-node-two-children/bstdelete-node-two-children.component';
 
+// Graph components
+import { GraphBreadthFirstComponent } from './graph/graph-breadth-first/graph-breadth-first.component';
+import { GraphDepthFirstComponent } from './graph/graph-depth-first/graph-depth-first.component';
+
 
 
 @NgModule({
@@ -104,7 +108,9 @@ import { BSTDeleteNodeTwoChildrenComponent } from './binary-tree/bstdelete-node-
     BSTDeleteNodeNoChildComponent,
     BSTDeleteNodeOneChildComponent,
     BSTDeleteNodeTwoChildrenComponent,
-    FooterComponent
+    FooterComponent,
+    GraphBreadthFirstComponent,
+    GraphDepthFirstComponent
     
   ],
   imports: [

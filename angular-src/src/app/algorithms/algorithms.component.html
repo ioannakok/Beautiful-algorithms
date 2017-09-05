@@ -1,41 +1,11 @@
 <div class="container-fluid">
 	<div class="row">
-        <a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="['/sorting']">
+        <a *ngFor="let algorithm of algorithms" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="algorithm.source">
 
-        <img class="img-circle" src="../assets/sorting.png" alt="Sorting" width="200" height="200">
-        <h2>SORTING</h2> 
-        </a><!-- /.col-lg-4 -->
+        <img class="img-circle" src="../assets/{{algorithm.photo}}.png" alt="Sorting" width="200" height="200">
+        <h2>{{algorithm.title}}</h2> 
+        </a>
 
-        <a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="['/stack']">
-
-        <img class="img-circle" src="../assets/stack.png" alt="Stack" width="200" height="200">
-        <h2>STACK</h2> 
-        </a><!-- /.col-lg-4 -->
-
-        <a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="['/queue']">
-
-        <img class="img-circle" src="../assets/queue.png" alt="Queue" width="200" height="200">
-        <h2>QUEUE</h2> 
-        </a><!-- /.col-lg-4 -->
-
-        <a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="['/linked-list']">
-
-        <img class="img-circle" src="../assets/linked-list.png" alt="Linked List" width="200" height="200">
-        <h2>LINKED LIST</h2> 
-        </a><!-- /.col-lg-4 -->
-
-        <a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="['/binary-tree']">
-
-        <img class="img-circle" src="../assets/binary-tree.png" alt="Binary Tree" width="200" height="200">
-        <h2>BINARY TREE</h2> 
-        </a><!-- /.col-lg-4 -->
-
-
-        <a class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="['/graph']">
-
-        <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="200" height="200">
-        <h2>GRAPH</h2> 
-        </a><!-- /.col-lg-4 -->
 	</div>
 </div>
 <router-outlet></router-outlet>

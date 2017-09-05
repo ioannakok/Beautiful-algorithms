@@ -9,6 +9,22 @@ export class QueueComponent implements OnInit {
 
 	title = 'QUEUE';
 
+	menu = [
+		{
+			"link": "enqueue",
+			"title": "Queue Enqueue"
+		}, {
+			"link": "dequeue",
+			"title": "Queue Dequeue"
+		}, {
+			"link": "front",
+			"title": "Queue Front"
+		}, {
+			"link": "rear",
+			"title": "Queue Rear"
+		},
+	];
+
   constructor() { }
 
   ngOnInit() {

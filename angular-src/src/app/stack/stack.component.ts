@@ -9,6 +9,21 @@ export class StackComponent implements OnInit {
 	
 	title = 'STACK';
 
+	menu = [ 
+
+		{
+			"link" : "push",
+			"title": "Stack Push"
+		}, {
+			"link" : "pop",
+			"title": "Stack Pop"
+		}, {
+			"link" : "peek",
+			"title": "Stack Peek"
+		} 
+
+	];
+
   constructor() { }
 
   ngOnInit() {

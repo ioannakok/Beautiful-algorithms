@@ -9,10 +9,7 @@
         <div class="col-lg-2 col-md-2 col-sm-3">
     		<nav class="navbar">
         		<ul class="nav flex-column">
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['enqueue']">Queue Enqueue</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['dequeue']">Queue Dequeue</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['front']">Queue Front</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['rear']">Queue Rear</a></li>    
+            		<li *ngFor="let item of menu" class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="item.link">{{item.title}}</a></li>   
         		</ul>
     		</nav>
 		</div>

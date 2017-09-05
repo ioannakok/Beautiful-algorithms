@@ -9,6 +9,27 @@ export class SortingComponent implements OnInit {
 
 	title = 'SORTING';
 
+	menu = [
+
+		{
+			"link": "bubble-sort",
+			"title": "Bubble Sort"
+		}, {
+			"link": "insertion-sort",
+			"title": "Insertion Sort"
+		}, {
+			"link": "selection-sort",
+			"title": "Selection Sort"
+		}, {
+			"link": "merge-sort",
+			"title": "Merge Sort"
+		}, {
+			"link": "quick-sort",
+			"title": "Quick Sort"
+		},
+
+	]
+
   constructor() { }
 
   ngOnInit() {

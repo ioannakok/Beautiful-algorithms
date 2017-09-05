@@ -3,19 +3,12 @@
 		<h1 class="margin title">{{title}}</h1>
 	</div>
 </div>
-
-
-
 <div class="container-fluid bg-4">
       <div class = "row">
         <div class="col-lg-2 col-md-2 col-sm-3">
     		<nav class="navbar">
         		<ul class="nav flex-column">
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['bubble-sort']">Bubble Sort</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insertion-sort']">Insertion Sort</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['selection-sort']">Selection Sort</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['merge-sort']">Merge Sort</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['quick-sort']">Quick Sort</a></li>    
+            		<li *ngFor="let item of menu" class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="item.link">{{item.title}}</a></li>   
         		</ul>
     		</nav>
 		</div>

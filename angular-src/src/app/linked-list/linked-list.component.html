@@ -9,12 +9,7 @@
         <div class="col-lg-2 col-md-2 col-sm-3">
     		<nav class="navbar">
         		<ul class="nav flex-column">
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insert-first']">Linked List Insert First</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insert-last']">Linked List Insert Last</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['insert-at-index']">Linked List Insert At Index</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-first']">Linked List Delete First</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-last']">Linked List Delete Last</a></li>
-            		<li class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="['delete-at-index']">Linked List Delete At Index</a></li>   
+            		<li *ngFor="let item of menu" class="nav-item" role="presentation" routerLinkActive="active"><a [routerLink]="item.link">{{item.title}}</a></li>   
         		</ul>
     		</nav>
 		</div>

@@ -16,6 +16,7 @@ import { STACK_ROUTES } from './stack/stack.routes';
 import { QUEUE_ROUTES } from './queue/queue.routes';
 import { LINKED_LIST_ROUTES } from './linked-list/linked-list.routes';
 import { BST_ROUTES } from './binary-tree/binary-tree.routes';
+import { GRAPH_ROUTES } from './graph/graph.routes';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -26,7 +27,7 @@ const appRoutes: Routes = [
   {path: 'binary-tree', component: BinaryTreeComponent, children: BST_ROUTES },
   {path: 'heap', component: HeapComponent},
   {path: 'hashing', component: HashingComponent},
-  {path: 'graph', component: GraphComponent}
+  {path: 'graph', component: GraphComponent, children: GRAPH_ROUTES}
 ]
 
 @NgModule({
