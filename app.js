@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const passport = require('passport');
 
+// Creates server
 const app = express();
 
 // Port Number

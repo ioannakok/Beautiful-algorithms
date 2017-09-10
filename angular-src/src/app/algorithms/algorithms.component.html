@@ -1,12 +1,12 @@
 <div class="container-fluid">
 	<div class="row">
-        <a *ngFor="let algorithm of algorithms" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" [routerLink]="algorithm.source">
+        <a *ngFor="let algorithm of algorithms" class="col-lg-4 col-md-4 col-sm-6 col-xs-12 circle" routerLink="{{algorithm.source}}">
 
-        <img class="img-circle" src="../assets/{{algorithm.photo}}.png" alt="Sorting" width="200" height="200">
+        <img class="img-circle" src="../assets/{{algorithm.photo}}.png" alt="{{algorithm.name}}" width="200" height="200">
         <h2>{{algorithm.title}}</h2> 
         </a>
 
 	</div>
 </div>
 <router-outlet></router-outlet>
-<app-footer><app-footer>
+<app-footer></app-footer>

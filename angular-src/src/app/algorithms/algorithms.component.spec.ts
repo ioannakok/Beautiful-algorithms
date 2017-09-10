@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { FooterComponent } from '../footer/footer.component';
 import { AlgorithmsComponent } from './algorithms.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AlgorithmsComponent', () => {
   let component: AlgorithmsComponent;
@@ -8,7 +10,9 @@ describe('AlgorithmsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlgorithmsComponent ]
+      declarations: [ AlgorithmsComponent,
+                      FooterComponent ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
   }));

@@ -75,6 +75,13 @@
 	height: 20px;
 }
 
+.blue {
+	background-color: #1a3abc;
+	width: 20px;
+	height: 20px;
+}
+
 .controlanimation {
 	padding-bottom: 10%;
 }
+

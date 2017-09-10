@@ -2,21 +2,19 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
-import { SortingComponent } from './sorting/sorting.component';
-import { StackComponent } from './stack/stack.component';
-import { QueueComponent } from './queue/queue.component';
-import { LinkedListComponent } from './linked-list/linked-list.component';
-import { BinaryTreeComponent } from './binary-tree/binary-tree.component';
-import { HeapComponent } from './heap/heap.component';
-import { HashingComponent } from './hashing/hashing.component';
-import { GraphComponent } from './graph/graph.component';
+import { SortingComponent } from './algorithms/sorting/sorting.component';
+import { StackComponent } from './algorithms/stack/stack.component';
+import { QueueComponent } from './algorithms/queue/queue.component';
+import { LinkedListComponent } from './algorithms/linked-list/linked-list.component';
+import { BinaryTreeComponent } from './algorithms/binary-tree/binary-tree.component';
+import { GraphComponent } from './algorithms/graph/graph.component';
 
-import { SORTING_ROUTES } from './sorting/sorting.routes';
-import { STACK_ROUTES } from './stack/stack.routes';
-import { QUEUE_ROUTES } from './queue/queue.routes';
-import { LINKED_LIST_ROUTES } from './linked-list/linked-list.routes';
-import { BST_ROUTES } from './binary-tree/binary-tree.routes';
-import { GRAPH_ROUTES } from './graph/graph.routes';
+import { SORTING_ROUTES } from './algorithms/sorting/sorting.routes';
+import { STACK_ROUTES } from './algorithms/stack/stack.routes';
+import { QUEUE_ROUTES } from './algorithms/queue/queue.routes';
+import { LINKED_LIST_ROUTES } from './algorithms/linked-list/linked-list.routes';
+import { BST_ROUTES } from './algorithms/binary-tree/binary-tree.routes';
+import { GRAPH_ROUTES } from './algorithms/graph/graph.routes';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -25,8 +23,6 @@ const appRoutes: Routes = [
   {path: 'queue', component: QueueComponent, children: QUEUE_ROUTES },
   {path: 'linked-list', component: LinkedListComponent, children: LINKED_LIST_ROUTES },
   {path: 'binary-tree', component: BinaryTreeComponent, children: BST_ROUTES },
-  {path: 'heap', component: HeapComponent},
-  {path: 'hashing', component: HashingComponent},
   {path: 'graph', component: GraphComponent, children: GRAPH_ROUTES}
 ]
 
