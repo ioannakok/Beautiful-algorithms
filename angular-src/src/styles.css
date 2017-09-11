@@ -40,6 +40,12 @@
 .indent-4 {
 	padding-left: 160px;
 }
+.indent-5 {
+	padding-left: 180px;
+}
+.indent-6 {
+	padding-left: 200px;
+}
 .comment {
 	color: #3abc1a;
 }
@@ -77,6 +83,12 @@
 
 .blue {
 	background-color: #1a3abc;
+	width: 20px;
+	height: 20px;
+}
+
+.red {
+	background-color: #dd1212;
 	width: 20px;
 	height: 20px;
 }

@@ -24,9 +24,6 @@ export class SortingComponent implements OnInit {
 			"link": "selection-sort",
 			"title": "Selection Sort"
 		}, {
-			"link": "merge-sort",
-			"title": "Merge Sort"
-		}, {
 			"link": "quick-sort",
 			"title": "Quick Sort"
 		},

@@ -24,7 +24,6 @@ import { GraphComponent } from './algorithms/graph/graph.component';
 import { BubbleSortComponent } from './algorithms/sorting/bubble-sort/bubble-sort.component';
 import { InsertionSortComponent } from './algorithms/sorting/insertion-sort/insertion-sort.component';
 import { SelectionSortComponent } from './algorithms/sorting/selection-sort/selection-sort.component';
-import { MergeSortComponent } from './algorithms/sorting/merge-sort/merge-sort.component';
 import { QuickSortComponent } from './algorithms/sorting/quick-sort/quick-sort.component';
 
 // Stack components
@@ -51,10 +50,7 @@ import { BSTInorderTraversalComponent } from './algorithms/binary-tree/bstinorde
 import { BSTLevelorderTraversalComponent } from './algorithms/binary-tree/bstlevelorder-traversal/bstlevelorder-traversal.component';
 import { BSTPreorderTraversalComponent } from './algorithms/binary-tree/bstpreorder-traversal/bstpreorder-traversal.component';
 import { BSTPostorderTraversalComponent } from './algorithms/binary-tree/bstpostorder-traversal/bstpostorder-traversal.component';
-import { BSTInsertNodeComponent } from './algorithms/binary-tree/bstinsert-node/bstinsert-node.component';
-import { BSTDeleteNodeNoChildComponent } from './algorithms/binary-tree/bstdelete-node-no-child/bstdelete-node-no-child.component';
-import { BSTDeleteNodeOneChildComponent } from './algorithms/binary-tree/bstdelete-node-one-child/bstdelete-node-one-child.component';
-import { BSTDeleteNodeTwoChildrenComponent } from './algorithms/binary-tree/bstdelete-node-two-children/bstdelete-node-two-children.component';
+
 
 // Graph components
 import { GraphBreadthFirstComponent } from './algorithms/graph/graph-breadth-first/graph-breadth-first.component';
@@ -77,7 +73,6 @@ import { GraphDepthFirstComponent } from './algorithms/graph/graph-depth-first/g
     BubbleSortComponent,
     InsertionSortComponent,
     SelectionSortComponent,
-    MergeSortComponent,
     QuickSortComponent,
     StackPushComponent,
     StackPopComponent,
@@ -96,10 +91,6 @@ import { GraphDepthFirstComponent } from './algorithms/graph/graph-depth-first/g
     BSTLevelorderTraversalComponent,
     BSTPreorderTraversalComponent,
     BSTPostorderTraversalComponent,
-    BSTInsertNodeComponent,
-    BSTDeleteNodeNoChildComponent,
-    BSTDeleteNodeOneChildComponent,
-    BSTDeleteNodeTwoChildrenComponent,
     FooterComponent,
     GraphBreadthFirstComponent,
     GraphDepthFirstComponent

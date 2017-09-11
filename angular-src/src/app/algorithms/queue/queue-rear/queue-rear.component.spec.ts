@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AlgorithmsService } from '../../algorithms.service';
 import { QueueRearComponent } from './queue-rear.component';
 
 describe('QueueRearComponent', () => {
@@ -21,5 +21,14 @@ describe('QueueRearComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should use the algorithm object from the service', () => {
+    let fixture = TestBed.createComponent(QueueRearComponent);
+    let component = fixture.debugElement.componentInstance;
+    let algorithmsService = fixture.debugElement.injector.get(AlgorithmsService);
+    fixture.detectChanges();
+    expect(algorithmsService.algorithms[10]).toEqual(component.algorithm);
+
   });
 });

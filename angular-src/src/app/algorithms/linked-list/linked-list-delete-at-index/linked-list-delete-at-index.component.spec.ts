@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AlgorithmsService } from '../../algorithms.service';
 import { LinkedListDeleteAtIndexComponent } from './linked-list-delete-at-index.component';
 
 describe('LinkedListDeleteAtIndexComponent', () => {
@@ -21,5 +21,14 @@ describe('LinkedListDeleteAtIndexComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should use the algorithm object from the service', () => {
+    let fixture = TestBed.createComponent(LinkedListDeleteAtIndexComponent);
+    let component = fixture.debugElement.componentInstance;
+    let algorithmsService = fixture.debugElement.injector.get(AlgorithmsService);
+    fixture.detectChanges();
+    expect(algorithmsService.algorithms[16]).toEqual(component.algorithm);
+
   });
 });

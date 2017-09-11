@@ -46,6 +46,8 @@ export class BSTPostorderTraversalComponent implements OnInit, OnInteract {
     tweens = [];
     button = null;
 
+    javaarray = [];
+
     // Code snippets
     code = [];
 

@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { AlgorithmsService } from '../../algorithms.service';
 import { BSTInorderTraversalComponent } from './bstinorder-traversal.component';
 
 describe('BSTInorderTraversalComponent', () => {
@@ -21,5 +21,14 @@ describe('BSTInorderTraversalComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should use the algorithm object from the service', () => {
+    let fixture = TestBed.createComponent(BSTInorderTraversalComponent);
+    let component = fixture.debugElement.componentInstance;
+    let algorithmsService = fixture.debugElement.injector.get(AlgorithmsService);
+    fixture.detectChanges();
+    expect(algorithmsService.algorithms[17]).toEqual(component.algorithm);
+
   });
 });

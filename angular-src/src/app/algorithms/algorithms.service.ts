@@ -2674,6 +2674,509 @@ export class AlgorithmsService {
 		    ], 
 		    "http://www.geeksforgeeks.org/level-order-tree-traversal/"
 
+		    ),
+
+
+		new Algorithm(
+		    "Breadth First Traversal",
+		    "Breadth first traversal visits first all the vertices connected with a vertex and then moves on to the rest of the vertices in the graph. It starts from a vertex, visits all the vertices connected with it and pushes them in a queue. Once it has visited all its neighbours, the first element of the queue is dequeued and all its neighbours that have not been visited yet are visited. Breadth first traversal assumes that the graph is represented as an adjacency list. Its complexity is O(V+E) = O(V) for the enqueue and dequeue operations which have a complexity of O(1) + O(E) for scanning the adjacency lists that contain the edges.",
+		    "O(V + E)",
+		    "O(V + E)",
+		    "O(V + E)",
+		    "Thomas H. Cormen et al., \"Introduction to Algorithms\"",
+		    [
+		    	{
+		            "colour": "red",
+		            "text": "Unvisited vertex"
+		        },
+		        {
+		            "colour": "purple",
+		            "text": "Vertex in the queue but its value has not been printed yet"
+		        }, {
+		            "colour": "blue",
+		            "text": "Vertex with value printed"
+		        }
+		         
+		    ],
+		    [
+
+		        {
+		            "style": "",
+		            "code": "create a queue"
+		        },
+		        {
+		            "style": "",
+		            "code": "for every vertex in graph"
+		        },
+		        {
+		            "style": "indent-1",
+		            "code": "if vertex has not been visited"
+		        }, {
+		            "style": "indent-2",
+		            "code": "vertex visited"
+		        },
+		        {
+		            "style": "indent-2",
+		            "code": "enqueue vertex"
+		        }, {
+		            "style": "indent-2",
+		            "code": "while queue is not empty"
+		        }, {
+		            "style": "indent-3",
+		            "code": "v = dequeue"
+		        }, {
+		            "style": "indent-3",
+		            "code": "print value of v"
+		        }, {
+		            "style": "indent-3",
+		            "code": "for every w that has an edge with v"
+		        }, {
+		            "style": "indent-4",
+		            "code": "if w has not been visited"
+		        }, {
+		            "style": "indent-4",
+		            "code": "enqueue w"
+		        }, {
+		            "style": "indent-4",
+		            "code": "w visited"
+		        }
+		    ],
+		    [
+
+		        {
+		            "style": "",
+		            "code": "void breadthFirst() {"
+		        }, {
+		            "style": "indent-1",
+		            "code": "Queue queue = new Queue();"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for(int i=0; i < vertices.length; i++)"
+		        }, {
+		            "style": "indent-1",
+		            "code": "{"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertices[i].visited)"
+		        }, {
+		            "style": "indent-2",
+		            "code": "{"
+		        }, {
+		            "style": "indent-3",
+		            "code": "vertices[i].visited = true;"
+		        }, {
+		            "style": "indent-3",
+		            "code": "queue.enQueue(vertices[i]);"
+		        }, {
+		            "style": "indent-3",
+		            "code": "while(!queue.isEmpty())"
+		        }, {
+		            "style": "indent-3",
+		            "code": "{"
+		        }, {
+		            "style": "indent-4",
+		            "code": "Vertex v = queue.deQueue();"
+		        }, {
+		            "style": "indent-4",
+		            "code": "System.out.println(v.label);"
+		        }, {
+		            "style": "indent-4",
+		            "code": "for(int j=0; j &lt; v.edges.length; j++)"
+		        }, {
+		            "style": "indent-4",
+		            "code": "{"
+		        }, {
+		            "style": "indent-5",
+		            "code": "if(!v.edges[j].visited)"
+		        }, {
+		            "style": "indent-5",
+		            "code": "{"
+		        }, {
+		            "style": "indent-6",
+		            "code": "queue.enQueue(v.edges[j]);"
+		        }, {
+		            "style": "indent-6",
+		            "code": "v.edges[j].visited = true;"
+		        }, {
+		            "style": "indent-5",
+		            "code": "}"
+		        }, {
+		            "style": "indent-4",
+		            "code": "}"
+		        }, {
+		            "style": "indent-3",
+		            "code": "}"
+		        }, {
+		            "style": "indent-2",
+		            "code": "}"
+		        }, {
+		            "style": "indent-1",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "}"
+		        }
+
+		    ],
+		    "Modification from GC05 - Algorithmics module",
+		    [
+		        {
+		            "style": "",
+		            "code": "def breadthFirst():"
+		        }, {
+		            "style": "indent-1",
+		            "code": "queue = Queue();"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for i in vertices:"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertices[i].visited):"
+		        }, {
+		            "style": "indent-3",
+		            "code": "vertices[i].visited = true;"
+		        }, {
+		            "style": "indent-3",
+		            "code": "queue.enQueue(vertices[i])"
+		        }, {
+		            "style": "indent-3",
+		            "code": "while(!queue.isEmpty()):"
+		        }, {
+		            "style": "indent-4",
+		            "code": "v = queue.deQueue()"
+		        }, {
+		            "style": "indent-4",
+		            "code": "print(v.label)"
+		        }, {
+		            "style": "indent-4",
+		            "code": "for j in v.edges:"
+		        }, {
+		            "style": "indent-5",
+		            "code": "if(!v.edges[j].visited):"
+		        }, {
+		            "style": "indent-6",
+		            "code": "queue.enQueue(v.edges[j])"
+		        }, {
+		            "style": "indent-6",
+		            "code": "v.edges[j].visited = true"
+		        }
+		    ],
+		    "Modification from GC05 - Algorithmics module",
+		    [
+		        {
+		            "style": "",
+		            "code": "void breadthFirst()"
+		        }, {
+		            "style": "",
+		            "code": "{"
+		        }, {
+		            "style": "indent-1",
+		            "code": "list<Vertex> queue;"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for(int i=0; i &lt; sizeof(vertices); i++)"
+		        }, {
+		            "style": "indent-1",
+		            "code": "{"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertices[i].visited)"
+		        }, {
+		            "style": "indent-2",
+		            "code": "{"
+		        }, {
+		            "style": "indent-3",
+		            "code": "vertices[i].visited = true;"
+		        }, {
+		            "style": "indent-3",
+		            "code": "queue.push_back(vertices[i]);"
+		        }, {
+		            "style": "indent-3",
+		            "code": "while(!queue.empty())"
+		        }, {
+		            "style": "indent-3",
+		            "code": "{"
+		        }, {
+		            "style": "indent-4",
+		            "code": "struct vertex *v;"
+		        }, {
+		            "style": "indent-4",
+		            "code": "v = create_vertex(queue.front());"
+		        }, {
+		            "style": "indent-4",
+		            "code": "cout << v.label;"
+		        }, {
+		            "style": "indent-4",
+		            "code": "for(int j=0; sizeof(v.edges); j++;)"
+		        }, {
+		            "style": "indent-4",
+		            "code": "{"
+		        }, {
+		            "style": "indent-5",
+		            "code": "if(!edges[j].visited)"
+		        }, {
+		            "style": "indent-5",
+		            "code": "{"
+		        }, {
+		            "style": "indent-6",
+		            "code": "queue.push_back(v.edges[j]);"
+		        }, {
+		            "style": "indent-6",
+		            "code": "v.edges[j].visited = true;"
+		        }, {
+		            "style": "indent-5",
+		            "code": "}"
+		        }, {
+		            "style": "indent-4",
+		            "code": "}"
+		        }, {
+		            "style": "indent-3",
+		            "code": "}"
+		        }, {
+		            "style": "indent-2",
+		            "code": "}"
+		        }, {
+		            "style": "indent-1",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "}"
+		        }
+		    ], 
+		    "Modification from GC05 - Algorithmics module"
+
+		    ),
+
+
+		new Algorithm(
+		    "Depth First Traversal",
+		    "Depth first traversal explores the graph as far as possible. It visits the vertices that are connected to the most recently visited vertex, if it still has unvisited neighbours. Once all its neighbours have been explored, it goes back to previously visited vertices to explore their neighbours.",
+		    "O(V + E)",
+		    "O(V + E)",
+		    "O(V + E)",
+		    "Thomas H. Cormen et al., \"Introduction to Algorithms\"",
+		    [
+		    	{
+		            "colour": "red",
+		            "text": "Unvisited vertex"
+		        },
+		        {
+		            "colour": "blue",
+		            "text": "Vertex with value printed"
+		        }
+		         
+		    ],
+		    [
+
+		        {
+		            "style": "",
+		            "code": "for vertex in graph"
+		        },
+		        {
+		            "style": "indent-1",
+		            "code": "if vertex has not been visited"
+		        },
+		        {
+		            "style": "indent-2",
+		            "code": "traverse(vertex)"
+		        }, {
+		            "style": "",
+		            "code": "traverse(vertex)"
+		        },
+		        {
+		            "style": "indent-1",
+		            "code": "print value of vertex"
+		        }, {
+		            "style": "indent-1",
+		            "code": "vertex is visited"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for every w that has an edge with a vertex"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if w has not been visited"
+		        }, {
+		            "style": "indent-3",
+		            "code": "traverse(w)"
+		        }
+		    ],
+		    [
+
+		        {
+		            "style": "",
+		            "code": "void depthFirst()"
+		        }, {
+		            "style": "",
+		            "code": "{"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for(int i=0; i &lt; vertices.length; i++;)"
+		        }, {
+		            "style": "indent-1",
+		            "code": "{"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertices[i].visited)"
+		        }, {
+		            "style": "indent-2",
+		            "code": "{"
+		        }, {
+		            "style": "indent-3",
+		            "code": "traverse(vertices[i];"
+		        }, {
+		            "style": "indent-2",
+		            "code": "}"
+		        }, {
+		            "style": "indent-1",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "void traverse(Vertex vertex)"
+		        }, {
+		            "style": "",
+		            "code": "{"
+		        }, {
+		            "style": "indent-1",
+		            "code": "System.out.println(vertex.label);"
+		        }, {
+		            "style": "indent-1",
+		            "code": "vertex.visited = true;"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for(int i=0; i < vertex.edges.length; i++;)"
+		        }, {
+		            "style": "indent-1",
+		            "code": "{"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertex.edges[i].visited)"
+		        }, {
+		            "style": "indent-2",
+		            "code": "{"
+		        }, {
+		            "style": "indent-3",
+		            "code": "traverse(vertex.edges[i]);"
+		        }, {
+		            "style": "indent-2",
+		            "code": "}"
+		        }, {
+		            "style": "indent-1",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "}"
+		        }
+
+		    ],
+		    "Modification from GC05 - Algorithmics module",
+		    [
+		        {
+		            "style": "",
+		            "code": "def depthFirst():"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for i in vertices:"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertices[i].visited):"
+		        }, {
+		            "style": "indent-3",
+		            "code": "traverse(vertices[i])"
+		        }, {
+		            "style": "",
+		            "code": "traverse(vertex):"
+		        }, {
+		            "style": "indent-1",
+		            "code": "print(vertex.label)"
+		        }, {
+		            "style": "indent-1",
+		            "code": "vertex.visited = true"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for i in vertex.edges:"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertex.edges[i].visited):"
+		        }, {
+		            "style": "indent-3",
+		            "code": "traverse(vertex.edges[i])"
+		        }
+		    ],
+		    "Modification from GC05 - Algorithmics module",
+		    [
+		        {
+		            "style": "",
+		            "code": "void depthFirst()"
+		        }, {
+		            "style": "",
+		            "code": "{"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for(int i=0; sizeof(vertices); i++;)"
+		        }, {
+		            "style": "indent-1",
+		            "code": "{"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertices[i].visited)"
+		        }, {
+		            "style": "indent-2",
+		            "code": "{"
+		        }, {
+		            "style": "indent-3",
+		            "code": "traverse(visited[i]);"
+		        }, {
+		            "style": "indent-2",
+		            "code": "}"
+		        }, {
+		            "style": "indent-1",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "void traverse(Vertex vertex)"
+		        }, {
+		            "style": "",
+		            "code": "{"
+		        }, {
+		            "style": "indent-1",
+		            "code": "cout << vertex.label;"
+		        }, {
+		            "style": "indent-1",
+		            "code": "vertex.visited = true;"
+		        }, {
+		            "style": "indent-1",
+		            "code": "for(int i=0; i < sizeof(vertex.edges); i++;)"
+		        }, {
+		            "style": "indent-1",
+		            "code": "}"
+		        }, {
+		            "style": "indent-2",
+		            "code": "if(!vertex.edges[i].visited)"
+		        }, {
+		            "style": "indent-2",
+		            "code": "{"
+		        }, {
+		            "style": "indent-3",
+		            "code": "traverse(vertex.edges[i]);"
+		        }, {
+		            "style": "indent-2",
+		            "code": "}"
+		        }, {
+		            "style": "indent-1",
+		            "code": "}"
+		        }, {
+		            "style": "",
+		            "code": "}"
+		        }
+		      ], 
+		    "Modification from GC05 - Algorithmics module"
+
 		    )
 
 		

@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js/src/Tween';
 import { Algorithm } from '../../algorithm.model';
 import { AlgorithmsService } from '../../algorithms.service';
-
+import { OnInteract} from '../../interact';
 
 @Component({
   selector: 'app-selection-sort',
@@ -11,7 +11,7 @@ import { AlgorithmsService } from '../../algorithms.service';
   styleUrls: ['./selection-sort.component.css'],
   providers: [AlgorithmsService] 
 })
-export class SelectionSortComponent implements OnInit {
+export class SelectionSortComponent implements OnInit, OnInteract {
 
 	@ViewChild('rendererContainer') rendererContainer: ElementRef;	
 

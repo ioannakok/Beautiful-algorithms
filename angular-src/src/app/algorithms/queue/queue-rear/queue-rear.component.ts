@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js/src/Tween';
 import { Algorithm } from '../../algorithm.model';
 import { AlgorithmsService } from '../../algorithms.service';
+import { OnInteract} from '../../interact';
 
 @Component({
   selector: 'app-queue-rear',
@@ -10,7 +11,7 @@ import { AlgorithmsService } from '../../algorithms.service';
   styleUrls: ['./queue-rear.component.css'],
   providers: [AlgorithmsService]
 })
-export class QueueRearComponent implements OnInit {
+export class QueueRearComponent implements OnInit, OnInteract {
 	
 	@ViewChild('rendererContainer') rendererContainer: ElementRef;
 

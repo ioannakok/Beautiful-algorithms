@@ -23,14 +23,6 @@ describe('BubbleSortComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should use data from the service', () => {
-    let fixture = TestBed.createComponent(BubbleSortComponent);
-    let component = fixture.debugElement.componentInstance;
-    let algorithmsService = fixture.debugElement.injector.get(AlgorithmsService);
-    fixture.detectChanges();
-    expect(algorithmsService.algorithms).toEqual(component.algorithms);
-
-  });
 
   it('should use the algorithm object from the service', () => {
     let fixture = TestBed.createComponent(BubbleSortComponent);

@@ -1,15 +1,19 @@
-import { Component, ViewChild, ElementRef, HostListener } from '@angular/core';
+import { Component, ViewChild, ElementRef, HostListener, OnInit } from '@angular/core';
 import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js/src/Tween';
-import { Graph } from '../graph'
-import { Vertex } from '../graph'
+import { Graph } from '../graph';
+import { Vertex } from '../graph';
+import { Algorithm } from '../../algorithm.model';
+import { AlgorithmsService } from '../../algorithms.service';
+import { OnInteract} from '../../interact';
 
 @Component({
   selector: 'app-graph-breadth-first',
   templateUrl: './graph-breadth-first.component.html',
-  styleUrls: ['./graph-breadth-first.component.css']
+  styleUrls: ['./graph-breadth-first.component.css'],
+  providers: [AlgorithmsService]
 })
-export class GraphBreadthFirstComponent {
+export class GraphBreadthFirstComponent implements OnInit, OnInteract {
 
 	@ViewChild('rendererContainer') rendererContainer: ElementRef;
 
@@ -19,6 +23,8 @@ export class GraphBreadthFirstComponent {
 	}
 
     // Properties
+    algorithm: Algorithm;
+
     renderer = new THREE.WebGLRenderer();
     scene = null;
     camera = null;
@@ -44,29 +50,66 @@ export class GraphBreadthFirstComponent {
     // Code snippets
     code = [];
 
+    // Pseudocode
+    pseudo0 = null;
+    pseudo1 = null;
+    pseudo2 = null;
+    pseudo3 = null;
+    pseudo4 = null;
+    pseudo5 = null;
+    pseudo6 = null;
+    pseudo7 = null;
+    pseudo8 = null;
+    pseudo9 = null;
+    pseudo10 = null;
+    pseudo11 = null;
+
     // Java
+    java1 = null;
     java2 = null;
-    java3 = null;
     java4 = null;
-    java5 = null;
     java6 = null;
+    java7 = null;
+    java8 = null;
+    java10 = null;
+    java11 = null;
+    java12 = null;
+    java14 = null;
+    java16 = null;
+    java17 = null;
 
     // Python
+    python1 = null;
     python2 = null;
     python3 = null;
     python4 = null;
     python5 = null;
+    python6 = null;
+    python7 = null;
+    python8 = null;
+    python9 = null;
+    python10 = null;
+    python11 = null;
+    python12 = null;
 
     // C++
+    c2 = null;
     c3 = null;
-    c4 = null;
     c5 = null;
-    c6 = null;
     c7 = null;
+    c8 = null;
+    c9 = null;
+    c11 = null;
+    c12 = null;
+    c13 = null;
+    c14 = null;
+    c16 = null;
+    c18 = null;
+    c19 = null;
 
 
 
-  constructor() { 
+  constructor(private algorithmsService: AlgorithmsService) { 
 
   		// Add camera
   	this.scene = new THREE.Scene();
@@ -92,25 +135,74 @@ export class GraphBreadthFirstComponent {
 
   }
 
+  ngOnInit() {
+    
+    this.algorithm = this.algorithmsService.getAlgorithm(21);
+  }
+
   	 ngAfterViewInit() {
         this.renderer.setSize(window.innerWidth / 2.5, window.innerHeight / 2.5);
         this.renderer.setClearColor(0xffffff);
         this.rendererContainer.nativeElement.appendChild(this.renderer.domElement);
         this.animate();  
 
+        // Pseudocode elements
+        this.pseudo0 = document.getElementById('pseudo0');
+        this.code.push(this.pseudo0);
+        this.pseudo1 = document.getElementById('pseudo1');
+        this.code.push(this.pseudo1);
+        this.pseudo2 = document.getElementById('pseudo2');
+        this.code.push(this.pseudo2);
+        this.pseudo3 = document.getElementById('pseudo3');
+        this.code.push(this.pseudo3);
+        this.pseudo4 = document.getElementById('pseudo4');
+        this.code.push(this.pseudo4);
+        this.pseudo5 = document.getElementById('pseudo5');
+        this.code.push(this.pseudo5);
+        this.pseudo6 = document.getElementById('pseudo6');
+        this.code.push(this.pseudo6);
+        this.pseudo7 = document.getElementById('pseudo7');
+        this.code.push(this.pseudo7);
+        this.pseudo8 = document.getElementById('pseudo8');
+        this.code.push(this.pseudo8);
+        this.pseudo9 = document.getElementById('pseudo9');
+        this.code.push(this.pseudo9);
+        this.pseudo10 = document.getElementById('pseudo10');
+        this.code.push(this.pseudo10);
+        this.pseudo11 = document.getElementById('pseudo11');
+        this.code.push(this.pseudo11);
+
+
         // Java elements
+        this.java1 = document.getElementById('java1');
+        this.code.push(this.java1);
         this.java2 = document.getElementById('java2');
         this.code.push(this.java2);
-        this.java3 = document.getElementById('java3');
-        this.code.push(this.java3);
         this.java4 = document.getElementById('java4');
         this.code.push(this.java4);
-        this.java5 = document.getElementById('java5');
-        this.code.push(this.java5);
         this.java6 = document.getElementById('java6');
         this.code.push(this.java6);
+        this.java7 = document.getElementById('java7');
+        this.code.push(this.java7);
+        this.java8 = document.getElementById('java8');
+        this.code.push(this.java8);
+        this.java10 = document.getElementById('java10');
+        this.code.push(this.java10);
+        this.java11 = document.getElementById('java11');
+        this.code.push(this.java11);
+        this.java12 = document.getElementById('java12');
+        this.code.push(this.java12);
+        this.java14 = document.getElementById('java14');
+        this.code.push(this.java14);
+        this.java16 = document.getElementById('java16');
+        this.code.push(this.java16);
+        this.java17 = document.getElementById('java17');
+        this.code.push(this.java17);
+        
 
         // Python elements
+        this.python1 = document.getElementById('python1');
+        this.code.push(this.python1);
         this.python2 = document.getElementById('python2');
         this.code.push(this.python2);
         this.python3 = document.getElementById('python3');
@@ -119,18 +211,48 @@ export class GraphBreadthFirstComponent {
         this.code.push(this.python4);
         this.python5 = document.getElementById('python5');
         this.code.push(this.python5);
+        this.python6 = document.getElementById('python6');
+        this.code.push(this.python6);
+        this.python7 = document.getElementById('python7');
+        this.code.push(this.python7);
+        this.python8 = document.getElementById('python8');
+        this.code.push(this.python8);
+        this.python9 = document.getElementById('python9');
+        this.code.push(this.python9);
+        this.python10 = document.getElementById('python10');
+        this.code.push(this.python10);
+        this.python11 = document.getElementById('python11');
+        this.code.push(this.python11);
+        this.python12 = document.getElementById('python12');
+        this.code.push(this.python12);
 
         // C++ elements
+        this.c2 = document.getElementById('c2');
+        this.code.push(this.c2);
         this.c3 = document.getElementById('c3');
         this.code.push(this.c3);
-        this.c4 = document.getElementById('c4');
-        this.code.push(this.c4);
         this.c5 = document.getElementById('c5');
         this.code.push(this.c5);
-        this.c6 = document.getElementById('c6');
-        this.code.push(this.c6);
         this.c7 = document.getElementById('c7');
         this.code.push(this.c7);
+        this.c8 = document.getElementById('c8');
+        this.code.push(this.c8);
+        this.c9 = document.getElementById('c9');
+        this.code.push(this.c9);
+        this.c11 = document.getElementById('c11');
+        this.code.push(this.c11);
+        this.c12 = document.getElementById('c12');
+        this.code.push(this.c12);
+        this.c13 = document.getElementById('c13');
+        this.code.push(this.c13);
+        this.c14 = document.getElementById('c14');
+        this.code.push(this.c14);
+        this.c16 = document.getElementById('c16');
+        this.code.push(this.c16);
+        this.c18 = document.getElementById('c18');
+        this.code.push(this.c18);
+        this.c19 = document.getElementById('c19');
+        this.code.push(this.c19);
       }
 
 
@@ -377,40 +499,111 @@ export class GraphBreadthFirstComponent {
     /* Functions for 3D animation */
 
     // Implements breadth first traversal
-    // GC05 - Algorithmics module
+    // Modification fromGC05 - Algorithmics module
     breadthFirst() {
 
         // Create a queue
         var queue = [];
+        this.animateCode(this.java1, this.time, this.delay);
+        this.animateCode(this.python1, this.time, this.delay);
+        this.animateCode(this.c2, this.time, this.delay);
+        this.animateCode(this.pseudo0, this.time, this.delay);
+        this.delay += this.time;
 
         // For all the vertices
         for(var i=0; i < this.vertices.length; i++) {
-            if(!this.vertices[i].visited) {
 
+            this.animateCode(this.java2, this.time, this.delay);
+            this.animateCode(this.python2, this.time, this.delay);
+            this.animateCode(this.c3, this.time, this.delay);
+            this.animateCode(this.pseudo1, this.time, this.delay);
+            this.delay += this.time;
+
+            this.animateCode(this.java4, this.time, this.delay);
+            this.animateCode(this.python3, this.time, this.delay);
+            this.animateCode(this.c5, this.time, this.delay);
+            this.animateCode(this.pseudo2, this.time, this.delay);
+            this.delay += this.time;
+
+            if(!this.vertices[i].visited) {
+                
                 // Mark as visited
                 this.vertices[i].visited = true;
+                this.animateCode(this.java6, this.time, this.delay);
+                this.animateCode(this.python4, this.time, this.delay);
+                this.animateCode(this.c7, this.time, this.delay);
+                this.animateCode(this.pseudo3, this.time, this.delay);
+                this.delay += this.time;
                 
                 // Enqueue vertex
                 queue.push(this.vertices[i]);
+                this.animateCode(this.java7, this.time, this.delay);
+                this.animateCode(this.python5, this.time, this.delay);
+                this.animateCode(this.c8, this.time, this.delay);
+                this.animateCode(this.pseudo4, this.time, this.delay);
+                this.delay += this.time;
+
+                this.animateCode(this.java8, this.time, this.delay);
+                this.animateCode(this.python6, this.time, this.delay);
+                this.animateCode(this.c9, this.time, this.delay);
+                this.animateCode(this.pseudo5, this.time, this.delay);
+                this.delay += this.time;
 
                 // While queue is not empty
                 while(queue.length !=0) {
 
                     // Deque the first element
                     var v = queue.shift();
+                    this.animateCode(this.java10, this.time, this.delay);
+                    this.animateCode(this.python7, this.time, this.delay);
+                    this.animateCode(this.c11, this.time, this.delay);
+                    this.animateCode(this.c12, this.time, this.delay);
+                    this.animateCode(this.pseudo6, this.time, this.delay);
+                    this.delay += this.time;
+                    
 
                     // Show its value
                     this.changeColour(v.sphere, this.time, this.delay, 0x1a3abc);
                     this.resize(v.sphere, this.time, this.delay);
+                    this.animateCode(this.java11, this.time, this.delay);
+                    this.animateCode(this.python8, this.time, this.delay);
+                    this.animateCode(this.c13, this.time, this.delay);
+                    this.animateCode(this.pseudo7, this.time, this.delay);
+                    
+                    this.delay += this.time;
+
+                    this.animateCode(this.java12, this.time, this.delay);
+                    this.animateCode(this.python9, this.time, this.delay);
+                    this.animateCode(this.c14, this.time, this.delay);
+                    this.animateCode(this.pseudo8, this.time, this.delay);
                     this.delay += this.time;
 
                     // Add its edges in the queue
                     for(var j=0; j < v.edges.length; j++) {
+
+                        this.animateCode(this.java14, this.time, this.delay);
+                        this.animateCode(this.python10, this.time, this.delay);
+                        this.animateCode(this.c16, this.time, this.delay);
+                        this.animateCode(this.pseudo9, this.time, this.delay);
+                        this.delay += this.time;
+
                         if(!v.edges[j].visited) {
+
+                            this.animateCode(this.java16, this.time, this.delay);
+                            this.animateCode(this.python11, this.time, this.delay);
+                            this.animateCode(this.c18, this.time, this.delay);
+                            this.animateCode(this.pseudo10, this.time, this.delay);
+                    
                             queue.push(v.edges[j]);
 
                             // Shows that an element has been added in the queue but not traversed yet
                             this.changeColour(v.edges[j].sphere, this.time, this.delay, 0xe600e6);
+                            this.delay += this.time;
+
+                            this.animateCode(this.java17, this.time, this.delay);
+                            this.animateCode(this.python12, this.time, this.delay);
+                            this.animateCode(this.c19, this.time, this.delay);
+                            this.animateCode(this.pseudo11, this.time, this.delay);
                             this.delay += this.time;
 
                             v.edges[j].visited = true;     
