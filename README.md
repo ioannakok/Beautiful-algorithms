@@ -1,6 +1,7 @@
 # Beautiful Algorithms
 
-An educational platform for children who wish to learn about algorithms. It contains 3D visualisations of some of the key data structures and algorithms within computer science. Based on an idea of Dr. Harry Strange, this application was initially created as a final project for the MSc in Computer Science at UCL. Built using HTML, Bootstrap, [Angular](https://github.com/angular/angular), [Node.js](https://github.com/nodejs/node), [THREE.js](https://github.com/mrdoob/three.js/) and [tween.js](https://github.com/tweenjs/tween.js).    
+An educational platform for children who wish to learn about algorithms. It contains 3D visualisations of some of the key data structures and algorithms within computer science. Based on an idea of Dr. Harry Strange, this application was initially created as a final project for the MSc in Computer Science at UCL. 
+Technologies used: HTML, Bootstrap, [Angular](https://github.com/angular/angular), [Node.js](https://github.com/nodejs/node), [THREE.js](https://github.com/mrdoob/three.js/) and [tween.js](https://github.com/tweenjs/tween.js).    
 
 ## Installation
 
